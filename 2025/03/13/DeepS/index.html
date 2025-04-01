@@ -19,24 +19,28 @@
   <meta name="author" content="Pleinelune">
   <meta name="keywords" content="Pleinelune">
   
-    <meta name="description" content="过去我只简单的使用过git push、git clone以及创建博客时的hexo等操作，为了更加系统性管理我的代码，花点时间学习git时有必要的。本文单纯是复习笔记，更详细的用法可以查看廖雪峰老师的git教程。 什么是gitgit是由linus开发的一种分布式开发控制系统，可以方便的管理个人或是公司的代码版本，查看每个版本进行的改动。 集中式？分布式？过去人们常用的SVN等集中式管理系统存在一些问">
+    <meta name="description" content="DeepS：通过深度神经网络加速3D质谱成像研究目的3D-MSI相对于2D来说，可以绘制复杂生物结构的分子分布图。本文提出一种多尺度采样单元的系数采样策略，通过3D稀疏网络重建。并提出DeepS工作流程和3D-SSNet，旨在在20-30%的采样率下也能得到和全采样近似的结果，缩短3D MSI技术分析构建的时长。 数据集3D阿尔兹海默症小鼠脂质数据集 PDX胶质母瘤小鼠脑数据集 小鼠肾脏MALDI">
 <meta property="og:type" content="article">
-<meta property="og:title" content="用Git管理repo">
-<meta property="og:url" content="http://pleinelune-r.github.io/2025/03/06/%E7%94%A8Git%E7%AE%A1%E7%90%86Repo/index.html">
+<meta property="og:title" content="DeepS汇报">
+<meta property="og:url" content="http://pleinelune-r.github.io/2025/03/13/DeepS/index.html">
 <meta property="og:site_name" content="Pleineblog">
-<meta property="og:description" content="过去我只简单的使用过git push、git clone以及创建博客时的hexo等操作，为了更加系统性管理我的代码，花点时间学习git时有必要的。本文单纯是复习笔记，更详细的用法可以查看廖雪峰老师的git教程。 什么是gitgit是由linus开发的一种分布式开发控制系统，可以方便的管理个人或是公司的代码版本，查看每个版本进行的改动。 集中式？分布式？过去人们常用的SVN等集中式管理系统存在一些问">
+<meta property="og:description" content="DeepS：通过深度神经网络加速3D质谱成像研究目的3D-MSI相对于2D来说，可以绘制复杂生物结构的分子分布图。本文提出一种多尺度采样单元的系数采样策略，通过3D稀疏网络重建。并提出DeepS工作流程和3D-SSNet，旨在在20-30%的采样率下也能得到和全采样近似的结果，缩短3D MSI技术分析构建的时长。 数据集3D阿尔兹海默症小鼠脂质数据集 PDX胶质母瘤小鼠脑数据集 小鼠肾脏MALDI">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://i0.hdslb.com/bfs/new_dyn/0941a49ad82b4b2855d2177706940e3f3546622430546732.jpg@.webp">
-<meta property="article:published_time" content="2025-03-06T06:23:41.768Z">
-<meta property="article:modified_time" content="2025-03-06T08:54:29.365Z">
+<meta property="og:image" content="c:\Users\ForRiver\AppData\Roaming\Typora\typora-user-images\image-20250331170006417.png">
+<meta property="og:image" content="c:\Users\ForRiver\AppData\Roaming\Typora\typora-user-images\image-20250331193435461.png">
+<meta property="og:image" content="c:\Users\ForRiver\AppData\Roaming\Typora\typora-user-images\image-20250331204750736.png">
+<meta property="og:image" content="c:\Users\ForRiver\AppData\Roaming\Typora\typora-user-images\image-20250331205033257.png">
+<meta property="og:image" content="c:\Users\ForRiver\AppData\Roaming\Typora\typora-user-images\image-20250401201024129.png">
+<meta property="article:published_time" content="2025-03-13T13:54:28.296Z">
+<meta property="article:modified_time" content="2025-04-01T12:40:57.297Z">
 <meta property="article:author" content="Pleinelune">
 <meta property="article:tag" content="Pleinelune">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://i0.hdslb.com/bfs/new_dyn/0941a49ad82b4b2855d2177706940e3f3546622430546732.jpg@.webp">
+<meta name="twitter:image" content="c:\Users\ForRiver\AppData\Roaming\Typora\typora-user-images\image-20250331170006417.png">
   
   
   
-  <title>用Git管理repo - Pleineblog</title>
+  <title>DeepS汇报 - Pleineblog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -202,7 +206,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="用Git管理repo"></span>
+            <span id="subtitle" data-typed-text="DeepS汇报"></span>
           
         </div>
 
@@ -213,8 +217,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-03-06 14:23" pubdate>
-          2025年3月6日 下午
+        <time datetime="2025-03-13 21:54" pubdate>
+          2025年3月13日 晚上
         </time>
       </span>
     
@@ -225,7 +229,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.1k 字
+          981 字
         
       </span>
     
@@ -273,25 +277,38 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">用Git管理repo</h1>
+            <h1 id="seo-header">DeepS汇报</h1>
             
             
               <div class="markdown-body">
                 
-                <p>过去我只简单的使用过git push、git clone以及创建博客时的hexo等操作，为了更加系统性管理我的代码，花点时间学习git时有必要的。本文单纯是复习笔记，更详细的用法可以查看廖雪峰老师的git教程。</p>
-<h2 id="什么是git"><a href="#什么是git" class="headerlink" title="什么是git"></a>什么是git</h2><p>git是由linus开发的一种分布式开发控制系统，可以方便的管理个人或是公司的代码版本，查看每个版本进行的改动。</p>
-<h3 id="集中式？分布式？"><a href="#集中式？分布式？" class="headerlink" title="集中式？分布式？"></a>集中式？分布式？</h3><p>过去人们常用的SVN等集中式管理系统存在一些问题，比如必须联网、需要担心中央服务器的正常运行等等。而在分布式系统中，每个人都有完整的版本库，就不存在上述问题。</p>
-<h2 id="基础操作"><a href="#基础操作" class="headerlink" title="基础操作"></a>基础操作</h2><h3 id="创建repo"><a href="#创建repo" class="headerlink" title="创建repo"></a>创建repo</h3><p>在你所需要创建仓库的地方打开gitbash或cd至你想要创建仓库的地方，用git init来初始化仓库。仓库中出现.git的文件夹说明创建成功。不要轻易的更改.git里的文件。</p>
-<p>当然你也可以从github上git clone一份已经存在的repo，推荐使用ssh方式。</p>
-<h3 id="工作区域与文件状态"><a href="#工作区域与文件状态" class="headerlink" title="工作区域与文件状态"></a>工作区域与文件状态</h3><p>除了你的本地仓库（工作区）、远程仓库（版本库）以外，.git文件夹中还有一个重要的区域——暂存区。你可以把他当做一个小推车，从仓库（工作区）取货时我们把需要的货物一个个git add进小推车里（暂存区），然后用小推车一次性git commit到商店（版本库）中。当然你也可以把商店里不需要的货物git reset HEAD到暂存区，然后再git checkout –file到工作区。当然，git status给你了随时查看工作区文件状态的可能。</p>
-<p>为什么我在git checkout后要写完整代码？因为git checkout和git checkout –是两回事。后面我们切换分支时会讲到git checkout，不过你也有替代方法。</p>
-<h3 id="版本差异与回退"><a href="#版本差异与回退" class="headerlink" title="版本差异与回退"></a>版本差异与回退</h3><p>今天你运了一天货，但是店老板突然告诉你那是修改后的货物清单，他把现在商店里的货物和他的清单git diff HEAD了一下给你看了看差异，其实他还想要你送来的第前100版。为了3500&#x2F;月工资，我忍了，我们知道HEAD表示这一版，HEAD^表示前一版，当然老板说的前100版不会是HEAD^^^^^^….^^，毕竟看到这么多^^你肯定也笑不出来，我们用HEAD~100来表示。<img src="https://i0.hdslb.com/bfs/new_dyn/0941a49ad82b4b2855d2177706940e3f3546622430546732.jpg@.webp" srcset="/img/loading.gif" lazyload alt="read-normal-img"></p>
-<p>好在现在git给了我们时间回溯的可能，可以用git log来查看过去我们的存档，<del>用sl来回去打店老板一拳</del>然后git reset 版本号来进行时间回溯。等你回溯完老板不紧不慢打电话给你说：能不能改回你删掉的那版？以你专业人员的素养，你只能微笑着跟他说：有的兄弟有的，像这样的git reflog记录我还有一百条。然后git reset到reflog的版本号去。</p>
-<h3 id="删除与忽略"><a href="#删除与忽略" class="headerlink" title="删除与忽略"></a>删除与忽略</h3><p>使用rm对本地文件进行删除后，你会发现暂存区和版本库内的内容仍然存在，事实上你可以把git add和git commit理解为一种状态，照样可以通过add和commit进行删除文件的更新。</p>
-<p>对于.ignore来说，不建议你自己写这个文档，你可以从github上下载一份对应的.ignore文件，然后根据自己的需求进行小修改。</p>
-<h3 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h3><p>在你的github绑定了ssh以后，可以通过git remote add origin 你的远程仓库（默认命名为origin，当然你也可以取一个新的名字）来绑定远程和本地仓库。此后只需要git pull&#x2F;push origin master来拉取和更新你的远程仓库。</p>
-<h2 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h2><h3 id="创建、合并分支"><a href="#创建、合并分支" class="headerlink" title="创建、合并分支"></a>创建、合并分支</h3><p>现在我们的手头有一份工作，但是随意更改已经发布的版本是很危险的，这时候我们需要在一个新的分支进行工作。上文说到git checkout可以切换分支，由于一个指令有两种意思，我倾向于使用git switch -c 分支名来创建一个新的分支进行工作。</p>
-<h3 id="bug分支"><a href="#bug分支" class="headerlink" title="bug分支"></a>bug分支</h3><h3 id="feature分支"><a href="#feature分支" class="headerlink" title="feature分支"></a>feature分支</h3><h3 id="多人协作"><a href="#多人协作" class="headerlink" title="多人协作"></a>多人协作</h3><h3 id="rebase"><a href="#rebase" class="headerlink" title="*rebase"></a>*rebase</h3>
+                <h1 id="DeepS：通过深度神经网络加速3D质谱成像"><a href="#DeepS：通过深度神经网络加速3D质谱成像" class="headerlink" title="DeepS：通过深度神经网络加速3D质谱成像"></a>DeepS：通过深度神经网络加速3D质谱成像</h1><h2 id="研究目的"><a href="#研究目的" class="headerlink" title="研究目的"></a>研究目的</h2><p>3D-MSI相对于2D来说，可以绘制复杂生物结构的分子分布图。本文提出一种多尺度采样单元的系数采样策略，通过3D稀疏网络重建。并提出DeepS工作流程和3D-SSNet，旨在<strong>在20-30%的采样率</strong>下也能得到和全采样近似的结果，缩短3D MSI技术分析构建的时长。</p>
+<h2 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h2><p>3D阿尔兹海默症小鼠脂质数据集</p>
+<p>PDX胶质母瘤小鼠脑数据集</p>
+<p>小鼠肾脏MALDI数据集</p>
+<h2 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h2><h3 id="稀疏采样策略"><a href="#稀疏采样策略" class="headerlink" title="稀疏采样策略"></a>稀疏采样策略</h3><p>传统方法：集合S中按预定顺序选取1x1大小s，但可能只适用于256x256</p>
+<p>本文方法：定义S由多个采样单元（正方形区域）构成，H x W会调整为H&#x2F;k x W&#x2F;k，不能整除部分填0。而s由人工掩码（稀疏化全采样数据时）和操作掩码决定。</p>
+<p><img src="C:\Users\ForRiver\AppData\Roaming\Typora\typora-user-images\image-20250331170006417.png" srcset="/img/loading.gif" lazyload alt="image-20250331170006417"></p>
+<p>所有<strong>未采样化为三通道（0,1,0）</strong>，采样复制值到三通道，以此区分未采样像素和低强度采样像素。</p>
+<h3 id="3D-SSNet模型"><a href="#3D-SSNet模型" class="headerlink" title="3D-SSNet模型"></a>3D-SSNet模型</h3><p><img src="C:\Users\ForRiver\AppData\Roaming\Typora\typora-user-images\image-20250331193435461.png" srcset="/img/loading.gif" lazyload alt="image-20250331193435461"></p>
+<p>Generator：稀疏图像重建。</p>
+<p>收缩：4下采样-卷积 扩展：卷积+4上采样 跳跃连接。</p>
+<p>Loss：MSE、La。MSE损失迫使生成的图像近似图像域中的目标。对抗性损失促进与真实的分布的语义相似性，进一步提高重建能力。</p>
+<p><img src="C:\Users\ForRiver\AppData\Roaming\Typora\typora-user-images\image-20250331204750736.png" srcset="/img/loading.gif" lazyload alt="image-20250331204750736"></p>
+<p>Discriminator：区分真实、重建样本。</p>
+<p>步长2的六块4x4卷积、BN、ReLU层。</p>
+<img src="C:\Users\ForRiver\AppData\Roaming\Typora\typora-user-images\image-20250331205033257.png" srcset="/img/loading.gif" lazyload alt="image-20250331205033257" style="zoom:200%;" />
+
+<h3 id="训练过程"><a href="#训练过程" class="headerlink" title="训练过程"></a>训练过程</h3><p>从集合{1，2，4，8，16}中选择一个值作为每个离子图像的采样单元的大小，生成一个随机的人工掩模（M#1），并执行模拟稀疏采样。</p>
+<p>多个时期的训练时，为每个时期生成新的人工掩模（M#1），有助于3DSSNet了解截面的结构特征、适应不同大小的采样单元。</p>
+<p>在训练D时，我们冻结G的权重并通过反向传播更新D的参数。同样，在训练G时冻结D的权重。</p>
+<p>在测试阶段，我们每个部分只生成一个操作掩码（M#2），由来自相同截面的所有离子图像共享。不需要为所有截面使用相同的k值，并且k可以根据偏好设置。在此阶段，使用生成器网络，并丢弃了递归网络。</p>
+<p>为了在数据多样性和数据收集成本之间取得平衡，DeepS利用三个切片的全采样数据作为训练数据集，根据沿着Z轴的等距标准进行选择。剩余的组织切片被稀疏采样并用于测试。</p>
+<h2 id="训练结果"><a href="#训练结果" class="headerlink" title="训练结果"></a>训练结果</h2><p>通过对采样率的对比实验表明，在模型训练过程中，<strong>采样率越低，重建效果越好</strong>（支持信息图S1）。训练参数默认设置如下：50个训练时期，20%的模拟稀疏采样率，批量大小为8，以及从{1，2，4，8，剩余的组织切片被稀疏地采样以评估具有各种采样单元尺寸和采样比的模型的重建性能。</p>
+<p>在20 - 30%的采样率下重建产生与原始图像几乎相同的离子图像，而考虑到成像时间的减少，通过将比率从50%降低到20%所引起的准确度损失是可接受的。大于27的PSNR值和大于0.7的SSIM值表明重建图像和真实的图像之间的差异最小。</p>
+<p><img src="C:\Users\ForRiver\AppData\Roaming\Typora\typora-user-images\image-20250401201024129.png" srcset="/img/loading.gif" lazyload alt="image-20250401201024129"></p>
+<p>模型可以有效地恢复不同采样率下的离子图像，几乎所有的离子图像在50%的采样率下都被很好地重建，这由所有离子图像的PSNR值大于30和SSIM值大于0.8来证明。在20%的采样率下，超过90%的离子图像被良好地重建，PSNR和SSIM值分别高于27和0.7。</p>
+
                 
               </div>
             
@@ -308,8 +325,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>用Git管理repo</div>
-      <div>http://pleinelune-r.github.io/2025/03/06/用Git管理Repo/</div>
+      <div>DeepS汇报</div>
+      <div>http://pleinelune-r.github.io/2025/03/13/DeepS/</div>
     </div>
     <div class="license-meta">
       
@@ -321,7 +338,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年3月6日</div>
+          <div>2025年3月13日</div>
         </div>
       
       
@@ -353,9 +370,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/03/13/DeepS/" title="DeepS汇报">
+                      <a href="/2025/03/31/D2l%E5%AD%A6%E4%B9%A0/" title="">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">DeepS汇报</span>
+                        <span class="hidden-mobile"></span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -363,8 +380,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/01/01/MSI%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B/" title="MSI数据处理流程">
-                        <span class="hidden-mobile">MSI数据处理流程</span>
+                      <a href="/2025/03/06/%E7%94%A8Git%E7%AE%A1%E7%90%86Repo/" title="用Git管理repo">
+                        <span class="hidden-mobile">用Git管理repo</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
