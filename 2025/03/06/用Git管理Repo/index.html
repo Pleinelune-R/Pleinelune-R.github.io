@@ -26,13 +26,11 @@
 <meta property="og:site_name" content="Pleineblog">
 <meta property="og:description" content="过去我只简单的使用过git push、git clone以及创建博客时的hexo等操作，为了更加系统性管理我的代码，花点时间学习git时有必要的。本文单纯是复习笔记，更详细的用法可以查看廖雪峰老师的git教程。 什么是gitgit是由linus开发的一种分布式开发控制系统，可以方便的管理个人或是公司的代码版本，查看每个版本进行的改动。 集中式？分布式？过去人们常用的SVN等集中式管理系统存在一些问">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://i0.hdslb.com/bfs/new_dyn/0941a49ad82b4b2855d2177706940e3f3546622430546732.jpg@.webp">
 <meta property="article:published_time" content="2025-03-06T06:23:41.768Z">
-<meta property="article:modified_time" content="2025-03-06T08:54:29.365Z">
+<meta property="article:modified_time" content="2025-04-06T16:08:38.630Z">
 <meta property="article:author" content="Pleinelune">
 <meta property="article:tag" content="Pleinelune">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://i0.hdslb.com/bfs/new_dyn/0941a49ad82b4b2855d2177706940e3f3546622430546732.jpg@.webp">
   
   
   
@@ -285,7 +283,7 @@
 <p>当然你也可以从github上git clone一份已经存在的repo，推荐使用ssh方式。</p>
 <h3 id="工作区域与文件状态"><a href="#工作区域与文件状态" class="headerlink" title="工作区域与文件状态"></a>工作区域与文件状态</h3><p>除了你的本地仓库（工作区）、远程仓库（版本库）以外，.git文件夹中还有一个重要的区域——暂存区。你可以把他当做一个小推车，从仓库（工作区）取货时我们把需要的货物一个个git add进小推车里（暂存区），然后用小推车一次性git commit到商店（版本库）中。当然你也可以把商店里不需要的货物git reset HEAD到暂存区，然后再git checkout –file到工作区。当然，git status给你了随时查看工作区文件状态的可能。</p>
 <p>为什么我在git checkout后要写完整代码？因为git checkout和git checkout –是两回事。后面我们切换分支时会讲到git checkout，不过你也有替代方法。</p>
-<h3 id="版本差异与回退"><a href="#版本差异与回退" class="headerlink" title="版本差异与回退"></a>版本差异与回退</h3><p>今天你运了一天货，但是店老板突然告诉你那是修改后的货物清单，他把现在商店里的货物和他的清单git diff HEAD了一下给你看了看差异，其实他还想要你送来的第前100版。为了3500&#x2F;月工资，我忍了，我们知道HEAD表示这一版，HEAD^表示前一版，当然老板说的前100版不会是HEAD^^^^^^….^^，毕竟看到这么多^^你肯定也笑不出来，我们用HEAD~100来表示。<img src="https://i0.hdslb.com/bfs/new_dyn/0941a49ad82b4b2855d2177706940e3f3546622430546732.jpg@.webp" srcset="/img/loading.gif" lazyload alt="read-normal-img"></p>
+<h3 id="版本差异与回退"><a href="#版本差异与回退" class="headerlink" title="版本差异与回退"></a>版本差异与回退</h3><p>今天你运了一天货，但是店老板突然告诉你那是修改后的货物清单，他把现在商店里的货物和他的清单git diff HEAD了一下给你看了看差异，其实他还想要你送来的第前100版。为了3500&#x2F;月工资，我忍了，我们知道HEAD表示这一版，HEAD^表示前一版，当然老板说的前100版不会是HEAD^^^^^^….^^，毕竟看到这么多^^你肯定也笑不出来，我们用HEAD~100来表示。</p>
 <p>好在现在git给了我们时间回溯的可能，可以用git log来查看过去我们的存档，<del>用sl来回去打店老板一拳</del>然后git reset 版本号来进行时间回溯。等你回溯完老板不紧不慢打电话给你说：能不能改回你删掉的那版？以你专业人员的素养，你只能微笑着跟他说：有的兄弟有的，像这样的git reflog记录我还有一百条。然后git reset到reflog的版本号去。</p>
 <h3 id="删除与忽略"><a href="#删除与忽略" class="headerlink" title="删除与忽略"></a>删除与忽略</h3><p>使用rm对本地文件进行删除后，你会发现暂存区和版本库内的内容仍然存在，事实上你可以把git add和git commit理解为一种状态，照样可以通过add和commit进行删除文件的更新。</p>
 <p>对于.ignore来说，不建议你自己写这个文档，你可以从github上下载一份对应的.ignore文件，然后根据自己的需求进行小修改。</p>
