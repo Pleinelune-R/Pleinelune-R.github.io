@@ -28,6 +28,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250405185957411.png">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250405185957412.png">
+<meta property="og:image" content="c:\Users\ForRiver\AppData\Roaming\Typora\typora-user-images\image-20250405210206052.png">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250405185957413.png">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250405185957414.png">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250405185957415.png">
@@ -36,7 +37,7 @@
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250405185957418.png">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250405185957419.png">
 <meta property="article:published_time" content="2025-03-13T13:54:28.296Z">
-<meta property="article:modified_time" content="2025-04-05T11:00:48.140Z">
+<meta property="article:modified_time" content="2025-04-05T13:21:17.130Z">
 <meta property="article:author" content="Pleinelune">
 <meta property="article:tag" content="Pleinelune">
 <meta name="twitter:card" content="summary_large_image">
@@ -233,7 +234,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1k 字
+          1.1k 字
         
       </span>
     
@@ -244,7 +245,7 @@
         
         
         
-          9 分钟
+          10 分钟
         
       </span>
     
@@ -294,14 +295,15 @@
 <h2 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h2><h3 id="稀疏采样策略"><a href="#稀疏采样策略" class="headerlink" title="稀疏采样策略"></a>稀疏采样策略</h3><p>传统方法：集合S中按预定顺序选取1x1大小s，但可能只适用于256x256</p>
 <p>本文方法：定义S由多个采样单元（正方形区域）构成，H x W会调整为H&#x2F;k x W&#x2F;k，不能整除部分填0。而s由人工掩码（稀疏化全采样数据时）和操作掩码决定。</p>
 <p><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250405185957412.png" srcset="/img/loading.gif" lazyload alt="image-20250331170006417"></p>
+<p><img src="C:\Users\ForRiver\AppData\Roaming\Typora\typora-user-images\image-20250405210206052.png" srcset="/img/loading.gif" lazyload alt="不同k值图像示例"></p>
 <p>所有<strong>未采样化为三通道（0,1,0）</strong>，采样复制值到三通道，以此区分未采样像素和低强度采样像素。</p>
 <p>论文地址未提供randon_mask函数代码。</p>
-<h3 id="3D-SSNet模型"><a href="#3D-SSNet模型" class="headerlink" title="3D-SSNet模型"></a>3D-SSNet模型</h3><p><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250405185957413.png" srcset="/img/loading.gif" lazyload alt="image-20250331193435461"></p>
+<h3 id="3D-SSNet模型"><a href="#3D-SSNet模型" class="headerlink" title="3D-SSNet模型"></a>3D-SSNet模型</h3><p><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250405185957413.png" srcset="/img/loading.gif" lazyload alt="SSNet模型"></p>
 <p>Generator：稀疏图像重建。</p>
 <p><strong>Unet：</strong>收缩：4下采样-卷积 扩展：卷积+4上采样 跳跃连接。</p>
 <p>Discriminator：区分真实、重建样本。</p>
 <p>步长2的六块4x4卷积层。</p>
-<p><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250405185957414.png" srcset="/img/loading.gif" lazyload alt="image-20250404154707862"></p>
+<p><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250405185957414.png" srcset="/img/loading.gif" lazyload alt="UNet结构"></p>
 <p>Loss：</p>
 <figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs autohotkey">`criterion = nn.BCELoss()`<br>`criterionL1 = nn.L1Loss()`<br></code></pre></td></tr></table></figure>
 
@@ -309,9 +311,11 @@
 <p><strong>netG:</strong></p>
 <figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">errG_D</span> = criterion(output, label)<br><br>        <br>        <span class="hljs-attr">errG_l1</span> = criterionL1(fake, input_real)<br>        <span class="hljs-attr">errG_l1</span> = errG_l1.mean()<br><br>        <span class="hljs-attr">errG</span> = (<span class="hljs-number">1</span> - wtl2) * errG_D + wtl2 * errG_l1<br></code></pre></td></tr></table></figure>
 
-<p><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250405185957415.png" srcset="/img/loading.gif" lazyload alt="image-20250331204750736"></p>
+<p><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250405185957415.png" srcset="/img/loading.gif" lazyload alt="Lg"></p>
 <p><strong>netD:</strong></p>
 <figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sas">errD_fake = criterio<span class="hljs-meta">n</span>(<span class="hljs-keyword">output</span>, <span class="hljs-keyword">label</span>)<br>errD_fake.backward()<br>errD = errD_real + errD_fake<br></code></pre></td></tr></table></figure>
+
+
 
 <img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250405185957416.png" srcset="/img/loading.gif" lazyload alt="image-20250331205033257" style="zoom:200%;" />
 
@@ -320,14 +324,16 @@
 <p>在训练D时，冻结G的权重并通过反向传播更新D的参数。同样，在训练G时冻结D的权重。</p>
 <p>在测试阶段，我们每个部分只生成一个操作掩码（M#2），由来自相同截面的所有离子图像共享。不需要为所有截面使用相同的k值，并且k可以根据偏好设置。在此阶段，使用生成器网络，并丢弃了递归网络。</p>
 <p>为了在数据多样性和数据收集成本之间取得平衡，DeepS利用三个切片的全采样数据作为训练数据集，根据沿着Z轴的等距标准进行选择。剩余的组织切片被稀疏采样并用于测试。</p>
-<h2 id="训练结果"><a href="#训练结果" class="headerlink" title="训练结果"></a>训练结果</h2><p>通过对采样率的对比实验表明，在模型训练过程中，<strong>采样率越低，重建效果越好</strong>（支持信息图S1）。训练参数默认设置如下：50个训练时期，20%的模拟稀疏采样率，批量大小为8，剩余的组织切片被稀疏地采样以评估具有各种采样单元尺寸和采样比的模型的重建性能。</p>
-<p>在20 - 30%的采样率下重建产生与原始图像几乎相同的离子图像，而考虑到成像时间的减少，通过将比率从50%降低到20%所引起的准确度损失是可接受的。大于27的PSNR值和大于0.7的SSIM值表明重建图像和真实的图像之间的差异最小。</p>
-<p><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250405185957417.png" srcset="/img/loading.gif" lazyload alt="image-20250401201024129"></p>
+<h2 id="训练结果"><a href="#训练结果" class="headerlink" title="训练结果"></a>训练结果</h2><p><strong>Dataset：3D阿尔茨海默氏病小鼠脂质数据集</strong></p>
+<p>通过对采样率的对比实验表明，在模型训练过程中，<strong>采样率越低，重建效果越好</strong>（支持信息图S1）。训练参数默认设置如下：50个训练时期，20%的模拟稀疏采样率，批量大小为8，剩余的组织切片被稀疏地采样以评估具有各种采样单元尺寸和采样比的模型的重建性能。</p>
+<p>在海马区选择一个10 × 10的区域来评估。计算了特定区域的平均质谱，总体平均绝对误差（MAE）为5.861 × 10−6，与原始光谱高度可比。</p>
 <p>固定k值，模型可以有效地恢复不同采样率下的离子图像，几乎所有的离子图像在50%的采样率下都被很好地重建，这由所有离子图像的PSNR值大于30和SSIM值大于0.8来证明。在20%的采样率下，超过90%的离子图像被良好地重建，PSNR和SSIM值分别高于27和0.7。</p>
-<p><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250405185957418.png" srcset="/img/loading.gif" lazyload alt="image-20250404152114198"></p>
+<p><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250405185957417.png" srcset="/img/loading.gif" lazyload alt="不同采样率重建效果"></p>
 <p>固定20%采样率，在k&#x3D;32后PSNR、SSIM数值显著减小。</p>
-<p><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250405185957419.png" srcset="/img/loading.gif" lazyload alt="image-20250404152436407"></p>
-<p>不同质荷比</p>
+<p><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250405185957418.png" srcset="/img/loading.gif" lazyload alt="不同掩码大小重建效果"></p>
+<p>模型迁移到胶质母细胞瘤PDX小鼠脑模型，该模型对不同质荷比和不同组织切片具有较高的重建精度。</p>
+<p>PDX和正常小鼠脑数据集在空间特征上存在差异，但该模型对两者都具有较好的重建效果。</p>
+<p><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250405185957419.png" srcset="/img/loading.gif" lazyload alt="不同质荷比重建效果"></p>
 
                 
               </div>
