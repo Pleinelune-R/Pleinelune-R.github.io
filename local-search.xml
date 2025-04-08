@@ -4,11 +4,11 @@
   
   
   <entry>
-    <title></title>
+    <title>现代神经网络学习</title>
     <link href="/2025/03/31/D2l%E5%AD%A6%E4%B9%A0/"/>
     <url>/2025/03/31/D2l%E5%AD%A6%E4%B9%A0/</url>
     
-    <content type="html"><![CDATA[<h1 id="D2l学习"><a href="#D2l学习" class="headerlink" title="D2l学习"></a>D2l学习</h1><h2 id="Lambda"><a href="#Lambda" class="headerlink" title="Lambda"></a>Lambda</h2><h3 id="Loss"><a href="#Loss" class="headerlink" title="Loss"></a>Loss</h3><p>**L2 ** ：零点远处更新梯度大，梯度更新不稳定</p><p>**L1 ** ：零点处不可导，优化末期不稳定</p><p><strong>Huber</strong> ：综合L1、L2两个Loss</p><p><strong>Cross-Entropy</strong>：分类任务的标准选择（如Softmax回归、图像分类）</p><h3 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h3><p><strong>SGD</strong> ：在整个训练集计算梯度资源太浪费。</p><p>学习率衰减可避免后期训练振荡。</p><h3 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h3><p>模型的训练-&gt;参数的训练</p><p>线性-MLP</p><p>AlexNet（解决数据、硬件问题后，用更深的网络证明学习到的特征可以超越手工设计的特征）</p><p>VGG（Conv+ReLU+Pool，循环可简易实现）</p><p>NiN（放弃使用全连接层，采用全局平均汇聚，显著减少模型所需参数）</p><p>GoogLeNet（并行提取不同信息，联想到滤波器组合）</p><h3 id="BigData"><a href="#BigData" class="headerlink" title="BigData"></a>BigData</h3><p>The Bitter Lesson</p><h3 id="Application"><a href="#Application" class="headerlink" title="Application"></a>Application</h3>]]></content>
+    <content type="html"><![CDATA[<h2 id="Lambda"><a href="#Lambda" class="headerlink" title="Lambda"></a>Lambda</h2><h3 id="Loss"><a href="#Loss" class="headerlink" title="Loss"></a>Loss</h3><p>**L2 ** ：零点远处更新梯度大，梯度更新不稳定</p><p>**L1 ** ：零点处不可导，优化末期不稳定</p><p><strong>Huber</strong> ：综合L1、L2两个Loss</p><p><strong>Cross-Entropy</strong>：分类任务的标准选择（如Softmax回归、图像分类）</p><h3 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h3><p><strong>SGD</strong> ：在整个训练集计算梯度资源太浪费。</p><p>学习率衰减可避免后期训练振荡。</p><h3 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h3><p>模型的训练-&gt;参数的训练</p><p>线性-MLP</p><p>AlexNet（解决数据、硬件问题后，用更深的网络证明学习到的特征可以超越手工设计的特征）</p><p>VGG（Conv+ReLU+Pool，循环可简易实现）</p><p>NiN（放弃使用全连接层，采用全局平均汇聚，显著减少模型所需参数）</p><p>GoogLeNet（并行提取不同信息，联想到滤波器组合）</p><h3 id="BigData"><a href="#BigData" class="headerlink" title="BigData"></a>BigData</h3><p>The Bitter Lesson</p><h3 id="Application"><a href="#Application" class="headerlink" title="Application"></a>Application</h3>]]></content>
     
     
     
