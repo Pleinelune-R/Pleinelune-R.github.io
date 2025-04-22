@@ -19,23 +19,27 @@
   <meta name="author" content="Pleinelune">
   <meta name="keywords" content="Pleinelune">
   
-    <meta name="description" content="SegMambaDatasets CRC-500：500个3D结直肠癌 BraTS 2023：1251个3D脑MRI（公开） AIIB2023：120个纤维化肺病（公开）  ModelSegMamba具有三部分：  1）具有多个三向空间Mamba（TSMamba）块的3D特征编码器，用于以不同尺度对全局信息进行建模（正向、反向、切片间） 2）基于卷积层的3D解码器，用于预测分割结果 3）特征级不确">
+    <meta name="description" content="SegMambaDatasets CRC-500：500个3D结直肠癌CT BraTS 2023：1251个3D脑MRI AIIB2023：120个纤维化肺病CT 公开数据集加粗，下同  ModelSegMamba具有三部分：  1）具有多个三向空间Mamba（TSMamba）块的3D特征编码器，用于以不同尺度对全局信息进行建模（正向、反向、切片间） 2）基于卷积层的3D解码器，用于预测分割结果">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Segment Model Compare">
 <meta property="og:url" content="http://pleinelune-r.github.io/2025/04/15/ModelCompare/index.html">
 <meta property="og:site_name" content="Pleineblog">
-<meta property="og:description" content="SegMambaDatasets CRC-500：500个3D结直肠癌 BraTS 2023：1251个3D脑MRI（公开） AIIB2023：120个纤维化肺病（公开）  ModelSegMamba具有三部分：  1）具有多个三向空间Mamba（TSMamba）块的3D特征编码器，用于以不同尺度对全局信息进行建模（正向、反向、切片间） 2）基于卷积层的3D解码器，用于预测分割结果 3）特征级不确">
+<meta property="og:description" content="SegMambaDatasets CRC-500：500个3D结直肠癌CT BraTS 2023：1251个3D脑MRI AIIB2023：120个纤维化肺病CT 公开数据集加粗，下同  ModelSegMamba具有三部分：  1）具有多个三向空间Mamba（TSMamba）块的3D特征编码器，用于以不同尺度对全局信息进行建模（正向、反向、切片间） 2）基于卷积层的3D解码器，用于预测分割结果">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250417170640235.png">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250421193131000.png">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250421193035107.png">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250421194438637.png">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250421193241411.png">
+<meta property="og:image" content="c:\Users\ForRiver\AppData\Roaming\Typora\typora-user-images\image-20250422153207119.png">
+<meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250422153424533.png">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250417203159867.png">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250418132430684.png">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250418132411758.png">
+<meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250422162428312.png">
+<meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250422165119843.png">
 <meta property="article:published_time" content="2025-04-15T11:22:12.321Z">
-<meta property="article:modified_time" content="2025-04-21T12:52:28.857Z">
+<meta property="article:modified_time" content="2025-04-22T08:58:30.474Z">
 <meta property="article:author" content="Pleinelune">
 <meta property="article:tag" content="Pleinelune">
 <meta name="twitter:card" content="summary_large_image">
@@ -232,7 +236,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          577 字
+          838 字
         
       </span>
     
@@ -243,7 +247,7 @@
         
         
         
-          5 分钟
+          7 分钟
         
       </span>
     
@@ -286,9 +290,10 @@
               <div class="markdown-body">
                 
                 <h1 id="SegMamba"><a href="#SegMamba" class="headerlink" title="SegMamba"></a>SegMamba</h1><h2 id="Datasets"><a href="#Datasets" class="headerlink" title="Datasets"></a>Datasets</h2><ul>
-<li>CRC-500：500个3D结直肠癌</li>
-<li>BraTS 2023：1251个3D脑MRI<strong>（公开）</strong></li>
-<li>AIIB2023：120个纤维化肺病<strong>（公开）</strong></li>
+<li>CRC-500：500个3D结直肠癌CT</li>
+<li><strong>BraTS 2023：1251个3D脑MRI</strong></li>
+<li><strong>AIIB2023：120个纤维化肺病CT</strong></li>
+<li>公开数据集加粗，下同</li>
 </ul>
 <h2 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h2><p>SegMamba具有三部分：</p>
 <ul>
@@ -300,11 +305,12 @@
 </ul>
 <p><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250417170640235.png" srcset="/img/loading.gif" lazyload alt="SegMambaOverview"></p>
 <h3 id="TSMamba块"><a href="#TSMamba块" class="headerlink" title="TSMamba块"></a>TSMamba块</h3><ul>
-<li><p>Gated Spatial Convolution</p>
+<li><p>Gated Spatial Convolution<strong>（谨慎学习这块内容，基本没用，代码部分会提到）</strong>:weary:</p>
 <p>类似于门机制的信息传输，在mamba前捕获空间信息</p>
 </li>
 </ul>
 <p><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250421193131000.png" srcset="/img/loading.gif" lazyload alt="GSC"></p>
+<p>​       </p>
 <ul>
 <li><p>Tri-orientated Mamba</p>
 <p>前向、反向、切片间，对高维特征的全局信息进行建模。</p>
@@ -312,15 +318,19 @@
 </ul>
 <p><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250421193035107.png" srcset="/img/loading.gif" lazyload alt="ToM"></p>
 <p><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250421194438637.png" srcset="/img/loading.gif" lazyload alt="TSMamba"></p>
-<h3 id="Feature-level-Uncertainty-Estimation"><a href="#Feature-level-Uncertainty-Estimation" class="headerlink" title="Feature-level Uncertainty Estimation"></a>Feature-level Uncertainty Estimation</h3><p>​       计算通道维度上的平均值，并进行归一化，增强低不确定性特征。</p>
+<h3 id="Feature-level-Uncertainty-Estimation（谨慎学习这块内容，作者没有给出）"><a href="#Feature-level-Uncertainty-Estimation（谨慎学习这块内容，作者没有给出）" class="headerlink" title="Feature-level Uncertainty Estimation（谨慎学习这块内容，作者没有给出）"></a>Feature-level Uncertainty Estimation<strong>（谨慎学习这块内容，作者没有给出）</strong></h3><p>​       计算通道维度上的平均值，并进行归一化，增强低不确定性特征。</p>
 <p><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250421193241411.png" srcset="/img/loading.gif" lazyload alt="FUE"></p>
 <h3 id="Loss-Train"><a href="#Loss-Train" class="headerlink" title="Loss &amp; Train"></a>Loss &amp; Train</h3><p>参数：使用交叉熵损失，具有多项式学习率调度器的SGD优化器（初始学习率为1 e-2，衰减为1 e-5）。所有数据集运行1000个epoch</p>
 <p>数据增强：加性亮度、伽马、旋转、缩放、镜像和弹性变形。</p>
 <h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><p><a target="_blank" rel="noopener" href="https://github.com/ge-xing/SegMamba">https://github.com/ge-xing/SegMamba</a></p>
+<p>吐槽下作者代码里实际上根本没有点乘，而是直接相加，和画的图&#x2F;公式完全是俩玩意，其实就是基本两个3x3+1x1跳连的残差块，和门控不大沾边，浪费好久去看这个结构。git记录也是稍显抽象。然后FUE根本没给，在issue回复很模糊。</p>
+<p><img src="C:\Users\ForRiver\AppData\Roaming\Typora\typora-user-images\image-20250422153207119.png" srcset="/img/loading.gif" lazyload alt="GSC实际代码"></p>
+<p><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250422153424533.png" srcset="/img/loading.gif" lazyload alt="git"></p>
+<p>可以学习的地方：ToM的正序反序、切片间顺序思路。</p>
 <h1 id="LISA"><a href="#LISA" class="headerlink" title="LISA"></a>LISA</h1><h2 id="Datasets-1"><a href="#Datasets-1" class="headerlink" title="Datasets"></a>Datasets</h2><ul>
-<li>Semantic Segmentation Dataset<strong>（公开）</strong></li>
-<li>Vanilla Referring Segmentation Dataset<strong>（公开）</strong></li>
-<li>Visual Question Answering Dataset<strong>（公开）</strong></li>
+<li><strong>Semantic Segmentation Dataset</strong></li>
+<li><strong>Vanilla Referring Segmentation Dataset</strong></li>
+<li><strong>Visual Question Answering Dataset</strong></li>
 </ul>
 <h2 id="Model-1"><a href="#Model-1" class="headerlink" title="Model"></a>Model</h2><p>LLM输出掩码，其中分割掩码表示为多边形序列，使分割掩码能够表示为纯文本。</p>
 <p>仅需在现有LLM（如LLaVA）基础上新增一个 <code>&lt;SEG&gt;</code> 标记和简单的解码器结构，避免复杂模型重构。</p>
@@ -328,7 +338,7 @@
 <p> 作为触发分割的指令信号，嵌入到LLM的词汇表中。当模型需要输出分割结果时，响应文本中会包含此标记。</p>
 <p>有<SEG>-&gt;大模型理解文本需要提取的内容-&gt;投影层连接文字信息与图片特征信息-&gt;SAM分割-&gt;LLM输入掩码-&gt;叠加掩码生成分割结果</p>
 <p><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250418132430684.png" srcset="/img/loading.gif" lazyload alt="掩码生成过程"></p>
-<h3 id="Loss-Train-1"><a href="#Loss-Train-1" class="headerlink" title="Loss &amp; Train"></a>Loss &amp; Train</h3><p>Ltxt是用于文本生成的自回归交叉熵损失，Lmask是掩码损失</p>
+<h3 id="Loss-Train-1"><a href="#Loss-Train-1" class="headerlink" title="Loss &amp; Train"></a>Loss &amp; Train</h3><p>Ltxt是用于文本生成的自回归交叉熵损失，Lmask是掩码损失。</p>
 <p><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250418132411758.png" srcset="/img/loading.gif" lazyload alt="损失"></p>
 <ul>
 <li><IMAGE> Can you segment the {class name} in this image?  语义分割数据集，输入图像和目标对象的名称</li>
@@ -336,6 +346,24 @@
 <li>视觉问题分类数据集，提高多模态LLM的问题分类（VQA）能力</li>
 </ul>
 <p>训练参数：微调LoRA，Fdec，embed tokens，Ilm head，投影层</p>
+<h1 id="HyperSeg"><a href="#HyperSeg" class="headerlink" title="HyperSeg"></a>HyperSeg</h1><h2 id="Datasets-2"><a href="#Datasets-2" class="headerlink" title="Datasets"></a>Datasets</h2><h3 id="图像分割"><a href="#图像分割" class="headerlink" title="图像分割"></a>图像分割</h3><ul>
+<li><strong>COCO Panoptic</strong></li>
+<li><strong>RefCOCO系列</strong></li>
+<li>COCO-Interactive</li>
+<li><strong>ReasonSeg</strong></li>
+</ul>
+<h3 id="视频分割"><a href="#视频分割" class="headerlink" title="视频分割"></a>视频分割</h3><ul>
+<li><strong>DAVIS 2017</strong></li>
+<li><strong>Ref-Youtube-VOS</strong></li>
+<li><strong>YouTube-VIS 2019</strong></li>
+<li>ReVOS</li>
+</ul>
+<h2 id="Model-2"><a href="#Model-2" class="headerlink" title="Model"></a>Model</h2><p>把Vision Token（VLLM的CLIP）、FVP精细分割后的Fine-grained Token、视觉和文字的Prompt Token输入大模型，LoRA微调。</p>
+<p>Prompt Token、Fine-grained Token和语义识别后的Mask Token一起输入分割预测器。</p>
+<p><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250422162428312.png" srcset="/img/loading.gif" lazyload alt="HyperSegOverview"></p>
+<h3 id="VLLM"><a href="#VLLM" class="headerlink" title="VLLM"></a>VLLM</h3><p>输入（V，P），由CLIP编码器得到特征fv，投影并与Fine-grained Token、Prompt Token级联得到输出。输出后的Hybrid Entity Reconition的语义增强掩码标记EQ是手动提取的。</p>
+<p><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250422165119843.png" srcset="/img/loading.gif" lazyload alt="VLLM Output"></p>
+<h3 id="Prompt"><a href="#Prompt" class="headerlink" title="Prompt"></a>Prompt</h3><p>P<del>I</del>：文本提示 P<del>C</del>：图片提示</p>
 
                 
               </div>
