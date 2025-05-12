@@ -29,6 +29,8 @@
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250512144841281.png">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250512144631854.png">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250512145656722.png">
+<meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250512151540741.png">
+<meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250512152733146.png">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250510215124317.png">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250510215607755.png">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250510214719681.png">
@@ -44,7 +46,7 @@
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250512121417258.png">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250512122146514.png">
 <meta property="article:published_time" content="2025-05-10T13:40:00.650Z">
-<meta property="article:modified_time" content="2025-05-12T06:57:17.439Z">
+<meta property="article:modified_time" content="2025-05-12T07:31:42.074Z">
 <meta property="article:author" content="Pleinelune">
 <meta property="article:tag" content="Pleinelune">
 <meta name="twitter:card" content="summary_large_image">
@@ -241,7 +243,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.5k 字
+          1.8k 字
         
       </span>
     
@@ -252,7 +254,7 @@
         
         
         
-          13 分钟
+          15 分钟
         
       </span>
     
@@ -302,7 +304,13 @@
 <p>\text { Attention }(Q, K, V)&#x3D;\operatorname{softmax}\left(\frac{Q K^{T}}{\sqrt{d_{k}}}\right) V</p>
 <p>也就是计算相似度得分后除以键向量维度的平方根，防止内积过大，使梯度更稳定。然后再进行softmax归一化后输出结果。输出的结果再去乘以V作为最后自注意力输出的Z矩阵。</p>
 <p><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250512145656722.png" srcset="/img/loading.gif" lazyload alt="Self-attention Output"></p>
-<h2 id="CLIP及其改进"><a href="#CLIP及其改进" class="headerlink" title="CLIP及其改进"></a>CLIP及其改进</h2><h3 id="CLIP简介"><a href="#CLIP简介" class="headerlink" title="CLIP简介"></a>CLIP简介</h3><p>CLIP（Contrastive Language-Image Pre-Training）模型是OPENAI在2021年发布的多模态预训练神经网络，核心是用大量的图像和文本配对数据来预训练对齐。其Zero-Shot成果尤为突出。</p>
+<p>自注意力是可以并行计算的，这与RNN逐个重复处理词元相比较，缺少了顺序信息。所以输入中药添加位置编码来注入绝对或相对位置信息。这个位置编码可以自己编写，也可以学习得到。</p>
+<h3 id="Multihead-Attention"><a href="#Multihead-Attention" class="headerlink" title="Multihead Attention"></a>Multihead Attention</h3><p>实际上多头注意力就是多个Self-Attention的连结，拼接起来再去乘以权重矩阵W<del>0</del>，每个头可能会关注输入不同的部分。</p>
+<p><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250512151540741.png" srcset="/img/loading.gif" lazyload alt="Multihead Attention"></p>
+<h3 id="Add-Normalize"><a href="#Add-Normalize" class="headerlink" title="Add &amp; Normalize"></a>Add &amp; Normalize</h3><p>经过多头注意力的输出Z还要进行Add和Norm两个操作。Add就是加上一个残差块，防止发生退化，而Layer Normalization则负责归一化加快训练速度。</p>
+<p>LN层针对同一样本的不同神经元进行归一化，在NLP中有用，而BN针对同一个batch不同样本同一位置神经元归一化，对NLP的词向量来说没有意义。</p>
+<p><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250512152733146.png" srcset="/img/loading.gif" lazyload alt="Transformer Encoder"></p>
+<h3 id="Feed-Forward-Network"><a href="#Feed-Forward-Network" class="headerlink" title="Feed Forward Network"></a>Feed Forward Network</h3><h2 id="CLIP及其改进"><a href="#CLIP及其改进" class="headerlink" title="CLIP及其改进"></a>CLIP及其改进</h2><h3 id="CLIP简介"><a href="#CLIP简介" class="headerlink" title="CLIP简介"></a>CLIP简介</h3><p>CLIP（Contrastive Language-Image Pre-Training）模型是OPENAI在2021年发布的多模态预训练神经网络，核心是用大量的图像和文本配对数据来预训练对齐。其Zero-Shot成果尤为突出。</p>
 <p>CLIP包含的主要部分为：</p>
 <ul>
 <li><p>Text Encoder：文本-&gt;低维向量</p>
