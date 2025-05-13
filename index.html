@@ -238,7 +238,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2025/05/10/Transformer%E4%B8%8E%E5%A4%9A%E6%A8%A1%E6%80%81/" target="_self">
         <div>
-          TransformerSelf-AttentionSelf-Attention的结构如下：  把初始矩阵X投影成Query、Key、Value三个向量矩阵（实际上是可学习的矩阵乘法如下），其理念用查询和键的点乘来计算余弦相似性。（Q·K &#x3D; |Q|·|K|·cosθ）  具体来说，其公式为：$$\text { Attention }(Q, K, V)&#x3D;\operatorname
+          TransformerAttentionAttention的结构如下：   现在我们拥有Query、Key、Value三个向量矩阵，假设我们在视频网站要查询所需要的内容，现在Q是你想要查询的内容Query，K是视频标签、关键词等Keywords，V就是Video本身了。 注意力的作用可以看做对查询和键来计算余弦相似性。假设每行代表一个单词，其对于Q、K矩阵的一行Q1·K1 &#x3D; |Q1|·
         </div>
       </a>
 
