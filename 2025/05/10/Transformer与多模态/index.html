@@ -36,11 +36,10 @@
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250512163112813.png">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250512165338090.png">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250512165902633.png">
-<meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250510215124317.png">
-<meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250510215607755.png">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250510214719681.png">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250510220213424.png">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250510221154785.png">
+<meta property="og:image" content="c:\Users\ForRiver\AppData\Roaming\Typora\typora-user-images\image-20250518191503395.png">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250512002336683.png">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250513162024567.png">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250513162108984.png">
@@ -54,7 +53,7 @@
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250513170238887.png">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250513170356130.png">
 <meta property="article:published_time" content="2025-05-10T13:40:00.650Z">
-<meta property="article:modified_time" content="2025-05-15T08:44:57.753Z">
+<meta property="article:modified_time" content="2025-05-19T09:31:34.116Z">
 <meta property="article:author" content="Pleinelune">
 <meta property="article:tag" content="Pleinelune">
 <meta name="twitter:card" content="summary_large_image">
@@ -251,7 +250,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.2k 字
+          3.8k 字
         
       </span>
     
@@ -262,7 +261,7 @@
         
         
         
-          27 分钟
+          32 分钟
         
       </span>
     
@@ -311,13 +310,14 @@
 <p>注意力的作用可以看做对查询和键来计算余弦相似性。假设每行代表一个单词，其对于Q、K矩阵的一行Q<del>1</del>·K<del>1</del> &#x3D; |Q<del>1</del>|·|K<del>1</del>|·cosθ为一个数。Q<del>1</del>和K<del>1</del>的方向相同时（即它们的夹角接近0），cosθ 接近1，所以Q<del>1</del>·K<del>1</del>较大。这表明Q<del>1</del>和K<del>1</del>很相似。反之，当 Q<del>1</del>和K<del>1</del>的方向相反时（即它们的夹角接近180度），cos(θ) 接近 -1，所以Q<del>1</del>·K<del>1</del>较小，甚至为负。这表明Q<del>1</del>和K<del>1</del>不相似。</p>
 <p>根据每行得出的相似度来计算得分，赋予权重，就完成了一次注意力计算。</p>
 <p>具体来说，其公式为：</p>
-<p>$$<br>\text { Attention }(Q, K, V)&#x3D;\operatorname{softmax}\left(\frac{Q K^{T}}{\sqrt{d_{k}}}\right) V<br>$$<br>也就是计算相似度得分后除以键向量维度的平方根，防止内积过大，使梯度更稳定。然后再进行softmax归一化后输出结果。输出的结果再去乘以V作为最后自注意力输出的Z矩阵。</p>
+<p>$$<br>\text { Attention }(Q, K, V)&#x3D;\operatorname{softmax}\left(\frac{Q K^{T}}{\sqrt{d_{k}}}\right) V<br>$$<br>也就是计算相似度得分后除以键向量维度的平方根，防止内积过大，使梯度更稳定。然后再进行softmax归一化后输出结果。输出的结果再去乘以V作为最后注意力输出的Z矩阵。</p>
 <img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250513172050816.png" srcset="/img/loading.gif" lazyload alt="Attention Output" style="zoom: 50%; "/>
 
 <h3 id="Self-Attention"><a href="#Self-Attention" class="headerlink" title="Self-Attention"></a>Self-Attention</h3><p>自注意力，顾名思义就是自己对自己做注意力机制。把我们仅有的初始矩阵X投影成Query、Key、Value三个向量矩阵（实际上是与可学习的矩阵做乘法），之后再做刚才的注意力机制操作。</p>
-<p>自注意力是可以并行计算的，这与RNN逐个重复处理词元相比较，缺少了顺序信息。所以输入中要添加位置编码来注入绝对或相对位置信息。这个位置编码可以自己编写，也可以学习得到。</p>
 <img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250513172124423.png" srcset="/img/loading.gif" lazyload alt="self-attention QKV" style="zoom:50%;" align="center"/>
 
+<p>自注意力是可以并行计算的，这与RNN逐个重复处理词元相比较，缺少了顺序信息。所以输入中要添加位置编码来注入绝对或相对位置信息。位置编码可以通过学习得到，也可以直接固定得到。例如在Transformer模型里，采用的正余弦位置编码就属于绝对位置编码。它利用正弦和余弦函数对不同位置进行编码，公式如下：</p>
+<p>$$<br>PE_{t}^{(i)} &#x3D;<br>\begin{cases}<br>    \sin(w_{k}t), &amp; \text{if } i &#x3D; 2k \<br>    \cos(w_{k}t), &amp; \text{if } i &#x3D; 2k + 1<br>\end{cases}<br>$$<br>这里：<br>$$<br>\begin{cases}<br>    w_{k} &#x3D; \frac{1}{10000^{\frac{2k}{d_{model}}}} \<br>    \dot{t} &#x3D; 0, 1, 2, 3, \ldots, \frac{d_{model}}{2} - 1<br>\end{cases}<br>$$<br>把频率设为非常小的参数可以使最后和起始的位置不会靠得太近，sin、cos交替编码可以使其很容易转换成相对位置编码。</p>
 <h3 id="Multihead-Self-Attention"><a href="#Multihead-Self-Attention" class="headerlink" title="Multihead Self-Attention"></a>Multihead Self-Attention</h3><p>实际上多头注意力就是多个Self-Attention的连结，拼接起来再去乘以权重矩阵W<del>0</del>，每个头可能会关注输入不同的部分。</p>
 <img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250513172140809.png" srcset="/img/loading.gif" lazyload alt="Multihead Self-attention Output" style="zoom:67%;" align="center"/>
 
@@ -332,8 +332,7 @@
 <p>LN层针对同一样本的不同神经元进行归一化，在NLP中有用，而BN针对同一个batch不同样本同一位置神经元归一化，对NLP的词向量来说没有意义。</p>
 <img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250513141203365.png" srcset="/img/loading.gif" lazyload alt="LN、BN、IN" style="zoom: 50%;" />
 
-<h3 id="Feed-Forward-Network"><a href="#Feed-Forward-Network" class="headerlink" title="Feed Forward Network"></a>Feed Forward Network</h3><p>全连接层FFN公式如下：<br>$$<br>F F N(x)&#x3D;\ ReLU (0, x W 1+b 1) W 2+b 2<br>$$<br>先进行线性变换，ReLU后再线性变换，把输入映射到高位空间筛选后变回来。</p>
-<p>&lt;大小描述&gt;</p>
+<h3 id="Feed-Forward-Network"><a href="#Feed-Forward-Network" class="headerlink" title="Feed Forward Network"></a>Feed Forward Network</h3><p>全连接层FFN公式如下：<br>$$<br>F F N(x)&#x3D;\ ReLU (0, x W 1+b 1) W 2+b 2<br>$$<br>假设输入维度<code> [512，512]</code>，通过W<del>1</del><code>[512，2048]</code>拓展维度，能够稀疏特征分布，更易被ReLU非线性组合。W<del>2</del><code>[2048，512]</code>在还原维度</p>
 <h3 id="整体结构"><a href="#整体结构" class="headerlink" title="整体结构"></a>整体结构</h3><p>Transformer整体结构就如下图所示，其中原文由6层Encoder和6层Decoder组成。</p>
 <img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250513161026879.png" srcset="/img/loading.gif" lazyload alt="Transformer Overview" style="zoom:50%;" />
 
@@ -352,13 +351,14 @@
 </ul>
 <img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250512163112813.png" srcset="/img/loading.gif" lazyload alt="VIT Overview" style="zoom:67%;" />
 
-<p>标准的Transformer模块，要求输入的是token序列[num_token, token_dim]，而图像是[H, W, C]。假如我输入的是一个[224，224 ，3]的图像，我可以通过大小为16x16，步长为16，卷积核个数为768的卷积提取特征为[14，14，768]，然后把它平铺成[196，768]大小的二维矩阵，实现Transformer输入格式。在进入Encoder前，注意要把Position Embedding加入。原论文中再起是的向量处还加入了大小为[1,768]的[class]token，这个可训练参数和其他数据拼接在一起。</p>
-<p>&lt;加Linear Projection解释&gt;</p>
-<p>和图片上展示的一样，实际上16 x 16，步长为16的卷积就相当于把这个图片分为196块这个大小的块分别提取特征，这样后面加上位置信息就更有道理。</p>
+<p>标准的Transformer模块，要求输入的是token序列[num_token, token_dim]，而图像是[H, W, C]。假如我输入的是一个<code>[224，224 ，3]</code>的图像，我可以通过大小为<code>16x16</code>，步长为16，卷积核个数为768的卷积提取特征为<code>[14，14，768]</code>，然后把它平铺成<code>[196，768]</code>大小的二维矩阵，实现Transformer输入格式。</p>
+<p>Linear Projection的操作可以表示为：<br>$$<br>Z0 &#x3D;\ X·W + b<br>$$<br><strong>W</strong> 是可学习的权重矩阵，形状为 <code>[768, d_model]</code>，<strong>b</strong> 是可学习的偏置向量，<strong>Z<del>0</del></strong> 是线性投影后的输出矩阵，形状为 <code>[196, d_model]</code>。</p>
+<p>和图片上展示的一样，实际上16 x 16，步长为16的卷积就相当于把这个图片分为196块这个大小的块分别提取特征，这样后面加上位置信息就更有道理。在进入Encoder前，注意要把Position Embedding加入。<br>$$<br>Z0’ &#x3D;\ Z0 + P<br>$$<br><strong>P</strong> 是位置编码矩阵，**Z<del>0</del>**是添加位置编码后的矩阵，形状仍为 <code>[196, d_model]</code>。</p>
+<p>原论文中向量处还加入了大小为<code>[1,d_model]</code>的[class]token，这个可训练参数和其他数据拼接在一起。<br>$$<br>\mathbf{Z}<em>{0}^{\prime \prime}&#x3D;\left[\begin{array}{c}\mathbf{C} \ \mathbf{Z}</em>{0}^{\prime}\end{array}\right]<br>$$<br><strong>C</strong> 是 <code>[class]</code> token，Z0′′<strong>Z</strong>0′′ 是拼接后的矩阵，形状为 <code>[197, d_model]</code>。</p>
 <img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250512165338090.png" srcset="/img/loading.gif" lazyload alt="Linear Projection of Flattened Patches" style="zoom:67%;" />
 
 <p>Transformer Encoder部分不再介绍，MLP层其实接近FFN。</p>
-<p>经过Encoder后输出的仍是[197，768]大小的矩阵，我们把首位的[class]token对应的[1,768]调出来，然后通过MLP Head得到最后的分类结果，以免你不知道用哪个位置的token进行后面的MLP分类操作。</p>
+<p>经过Encoder后输出的仍是<code>[197，768]</code>大小的矩阵，我们把首位的[class]token对应的<code>[1,768]</code>调出来，然后通过MLP Head得到最后的分类结果，以免你不知道用哪个位置的token进行后面的MLP分类操作。</p>
 <img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250512165902633.png" srcset="/img/loading.gif" lazyload alt="MLP Head" style="zoom:50%;" />
 
 
@@ -374,15 +374,12 @@
 <li>劣势：需要大量数据，难以完成复杂任务。</li>
 <li>可学习之处：文本-图像构建正负样本对及点积相似性分类，对下面文章的指导。</li>
 </ul>
-<h3 id="Image-Encoder"><a href="#Image-Encoder" class="headerlink" title="Image Encoder"></a>Image Encoder</h3><p>CLIP使用的Encoder可以是修改后的ResNet50（<strong>注意力池化机制</strong>替代<strong>全局平均池化层</strong>），通过单层的多头QKV注意力，Q基于图像的全局平均池化；也可以是修改后的ViT，在Transformer前对Patch+Possition Embedding进行了归一化处理。</p>
-<img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250510215124317.png" srcset="/img/loading.gif" lazyload alt="Image Encoder:VIT" style="zoom: 80%;" />
-
-<h3 id="Text-Encoder"><a href="#Text-Encoder" class="headerlink" title="Text Encoder"></a>Text Encoder</h3><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250510215607755.png" srcset="/img/loading.gif" lazyload alt="Text Encoder：Transformer" style="zoom: 50%;" />
-
-<p>由下图，CLIP实际上在训练中通过生成文本、图像的相似度来生成预测 $| I1 |·|T1|·cosθ$，一个文本和对应图片生成n个正样本和其他的负样本。</p>
+<h4 id="Encoder"><a href="#Encoder" class="headerlink" title="Encoder"></a>Encoder</h4><p>CLIP使用的Encoder可以是修改后的ResNet50（<strong>注意力池化机制</strong>替代<strong>全局平均池化层</strong>），通过单层的多头QKV注意力，Q基于图像的全局平均池化；也可以是<strong>修改后的ViT</strong>，在Transformer前对Patch+Possition Embedding进行了归一化处理。使用的Test Encoder则是经典的<strong>Transformer</strong>。</p>
+<h4 id="训练过程"><a href="#训练过程" class="headerlink" title="训练过程"></a>训练过程</h4><p>由下图，CLIP实际上通过生成文本、图像的相似度来生成预测 $| I1 |·|T1|·cosθ$，一个文本和对应图片生成n个正样本和其他的负样本。</p>
 <img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250510214719681.png" srcset="/img/loading.gif" lazyload alt="pre-training" style="zoom:67%;" />
 
 <p>为了达到更好的效果，不能直接把单个词语与图片输入，而是先做一个Prompt template之后输入。</p>
+<p>Prompt template是指生成提示的可重复的方式，包含一个模板，例如图中的a photo of a {object}。Prompt把下游任务重构为模型熟悉的完形填空模式，可以激活预训练语言模型中的记忆，在few-shot上效果显著。</p>
 <p>推理时把图片特征和文本特征计算相似性，输出分类结果。</p>
 <img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250510220213424.png" srcset="/img/loading.gif" lazyload alt="Prompt Template & Predict" style="zoom:67%;" />
 
@@ -393,10 +390,11 @@
 <p>图片：H x W x C 在C维度上相乘 </p>
 <p>结果：H x W x N</p>
 <p>由于分割数据集一般较小，会把CLIP改为有监督训练，计算交叉熵，和CLIP实际上有区别。</p>
-<h4 id="GroupViT"><a href="#GroupViT" class="headerlink" title="GroupViT"></a>GroupViT</h4><p>Image通过ViT的Transformer layer -  Group聚类（重复后减少）</p>
-<p>Avg Pooling后MLP，和Text的MLP做余弦相似（CLIP）</p>
-<p>返回去对每一个Group进行相似分类。</p>
-<p>由于CLIP特性，很可能分离的Mask正确而类别错误，没有正确学习语义，且最多智能检测到最后一层Group类。</p>
+<h4 id="GroupViT"><a href="#GroupViT" class="headerlink" title="GroupViT"></a>GroupViT</h4><p>Image通过ViT的Transformer layer后进行Grouping。（重复此模块并且Group的类别逐渐减少）</p>
+<p>由于是分类任务，最后还是有不同的类别，做Avg Pooling后MLP，和CLIP一样与Text的MLP结果做余弦相似得到Loss。推理分类时再把每个Group的特征和Text的特征做余弦相似，可以知道每个Group对应哪一类。</p>
+<p>由于CLIP特性，很可能分离的Mask正确而类别错误，没有正确学习语义，且最多只能检测到最后一层Group数量的类。</p>
+<img src="C:\Users\ForRiver\AppData\Roaming\Typora\typora-user-images\image-20250518191503395.png" srcset="/img/loading.gif" lazyload alt="GroupVIT Overview" style="zoom:67%;" />
+
 <h2 id="多模态经典论文"><a href="#多模态经典论文" class="headerlink" title="多模态经典论文"></a>多模态经典论文</h2><p>以ViLT论文里展示的四种语言-视觉融合模型来说，CLIP处在B类。A、B两类的参数量更大，计算相似性部分则较轻，复杂情况可能难以得到好的结果。而C、D两种的训练时间长，要求高。</p>
 <p>在多模态任务里，视觉特征是要大于文本特征的，所以Visual Embed应该不是很小，而Modality Interaction如果想处理更复杂的模型，应该也要较大，类似图中C类。</p>
 <p>关于多模态任务使用的Loss，大概有Image Text Contrastive（CLIP中最大化N*N图像-文本对余弦相似度）、Mask Language Modeling（BERT中遮住一个词进行完形填空）、Image Text Matching（二分类判断生成的图像-文本对联合表示是否匹配）</p>
@@ -418,6 +416,7 @@
 <img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250513162024567.png" srcset="/img/loading.gif" lazyload alt="ALBEF Overview" style="zoom: 67%;" />
 
 <p>用动量蒸馏模型给图像-文本对比学习和掩码语言建模生成伪标签，不采用影响训练噪声数据（可能符合但不与Ground Truth相符），扩大有用数据集，one-hot and multi-hot。</p>
+<p>动量蒸馏实际上就是先训练出一个版本的ALBEF，把它作为动量模型，用动量模型输出的伪目标作为额外的监督标准，在原本Loss的基础上和伪目标的Loss进行KL-发散加权组合。同时动量模型作为教师模型也随着ALBEF的训练动态EMA更新参数权重。</p>
 <img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250513162108984.png" srcset="/img/loading.gif" lazyload alt="ITC/MIM examples" style="zoom: 67%;" />
 
 <h3 id="VLMo-Unified-Vision-Language-Pre-Training-with-Mixture-of-Modality-Experts"><a href="#VLMo-Unified-Vision-Language-Pre-Training-with-Mixture-of-Modality-Experts" class="headerlink" title="VLMo: Unified Vision-Language Pre-Training with Mixture-of-Modality-Experts"></a>VLMo: Unified Vision-Language Pre-Training with Mixture-of-Modality-Experts</h3><h4 id="方法总结-1"><a href="#方法总结-1" class="headerlink" title="方法总结"></a>方法总结</h4><ul>
@@ -427,12 +426,12 @@
 </ul>
 <h4 id="具体内容-1"><a href="#具体内容-1" class="headerlink" title="具体内容"></a>具体内容</h4><p>CLIP、ALIGN等双塔模型，Image、Text单独抽取特征互不影响，但在一部分下游任务不如使用Fusion  Encoder的单塔模型。但是单塔模型在检索任务上又不适合大数据集，推理时间非常慢。</p>
 <p>VLMo在Transformer中做了一部分改动：MoME Transformer。在Feed Forward Network中有区分Vision、Language和Vision-Language，在不同模态使用，self-attention可以共享参数。在使用中很灵活，但是由于要存储不同情况下的数据，要forward多次，速度非常慢，自己训练不现实。</p>
-<p>使用Loss也是ITC、ITM、MLM。</p>
 <img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250513161725376.png" srcset="/img/loading.gif" lazyload alt="VLMo Overview" style="zoom:80%;" />
 
 <p>训练时分阶段，使用单模态数据集单独预训练Vision、Language，大大减轻需要的多模态数据集。</p>
 <img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250513161754752.png" srcset="/img/loading.gif" lazyload alt="Pre-training" style="zoom:80%;" />
 
+<p>使用的Loss也是ITC、ITM、MLM。</p>
 <h3 id="BLIP：Bootstrapping-Language-Image-Pre-training-for-Unified-Vision-Language-Understanding-and-Generation"><a href="#BLIP：Bootstrapping-Language-Image-Pre-training-for-Unified-Vision-Language-Understanding-and-Generation" class="headerlink" title="BLIP：Bootstrapping Language-Image Pre-training for Unified Vision-Language Understanding and Generation"></a>BLIP：Bootstrapping Language-Image Pre-training for Unified Vision-Language Understanding and Generation</h3><h4 id="方法总结-2"><a href="#方法总结-2" class="headerlink" title="方法总结"></a>方法总结</h4><ul>
 <li>优势：能处理噪声数据，扩大数据集；可以完成生成任务。</li>
 <li>劣势：训练还是很慢，存在误分类问题（实际上还是CLIP带来的）。</li>
@@ -451,7 +450,7 @@
 <p>文本端要做3次Forward，训练效率也偏慢。</p>
 <img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250512120226522.png" srcset="/img/loading.gif" lazyload alt="BLIP-Overview" style="zoom:80%;" />
 
-<p>特殊之处：由于BLIP和ALBEF是同一个团队提出的，实际上训练细节差不多。而BLIP也致力于解决网络数据集噪声太多影响训练的情况，提出了Captioner Filter Model。</p>
+<p>由于BLIP和ALBEF是同一个团队提出的，实际上训练细节差不多。而BLIP也致力于解决网络数据集噪声太多影响训练的情况，提出了Captioner Filter Model。</p>
 <p>把训练好的BLIP模型前两部分拿出来，在无噪声数据集上微调后为Filter，再用微调后的Decoder生成的文本做Captioner补充新的数据集，过滤掉相对不匹配的提高图像文本对的质量。得到的图像文本对再返回去训练第二个BLIP模型。</p>
 <img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250512121417258.png" srcset="/img/loading.gif" lazyload alt="Cap Filter Model" style="zoom:80%;" />
 
@@ -465,9 +464,11 @@
 <li><p>可学习之处：对速度的优化，Pooling的更改。</p>
 </li>
 </ul>
-<h4 id="具体内容-3"><a href="#具体内容-3" class="headerlink" title="具体内容"></a>具体内容</h4><p>顾名思义，用Contrastive loss 和 Captioning loss训练出来。Image Encoder和Text Encoder用Contrastive Loss来训练，而最后的多模态用的是Captioning Loss，也就是GPT用的Loss。</p>
+<h4 id="具体内容-3"><a href="#具体内容-3" class="headerlink" title="具体内容"></a>具体内容</h4><p>顾名思义，用Contrastive loss 和 Captioning loss训练的模型。CoCa基本上是ALBEF直接的后续工作，跟ALBEF的区别是用了attentional pooling来学习不同任务的特征，以及放弃了ITM Loss。</p>
+<p>另外文本特征端用的都是Decoder，这样一开始就是mask的，可以只做一次forward减少计算量，但是代价是用了巨大的数据集，非常多的参数量，scale远超之前所有的工作。</p>
+<p>Image Encoder和Text Encoder用Contrastive Loss来训练，类似之前的ITC loss，而最后的多模态用的是Captioning Loss，也就是GPT用的Loss，基于交叉熵，用于预测被遮蔽的文本标记。</p>
 <p><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250513164612673.png" srcset="/img/loading.gif" lazyload alt="CoCa Overview"></p>
-<p>跟ALBEF的区别是用了attentional pooling来学习不同任务的特征，放弃了ITM Loss。另外文本特征端用的都是Decoder，这样一开始就是mask的，可以只做一次forward减少计算量，但是代价是用了巨大的数据集，非常多的参数量，scale远超之前所有的工作。</p>
+<p>效果和效果图都非常的好，这种类型的成果展示图被很多后来者用上。</p>
 <img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250513165158262.png" srcset="/img/loading.gif" lazyload alt="比例取巧了，但是很吓人" style="zoom:50%;" />
 
 
@@ -476,11 +477,10 @@
 <li>优势：没有像CoCa一样使用过多数据且均为Public，应用广泛。</li>
 <li>可学习之处：损失函数设计优化</li>
 </ul>
-<h4 id="具体内容-4"><a href="#具体内容-4" class="headerlink" title="具体内容"></a>具体内容</h4><p>BieT的核心就是把所有图片化成Imagelish，和Text一起做Mask Modeling当做唯一的损失。</p>
-<p>Pre-training部分和他们之前的工作VLMo是完全一致的MOE，只是换了个名字。</p>
+<h4 id="具体内容-4"><a href="#具体内容-4" class="headerlink" title="具体内容"></a>具体内容</h4><p>BieT的核心就是把所有图片化成Imagelish（和Text形式一样），和Text一起做Mask Modeling（完形填空）当做唯一的损失。而Pre-training部分和他们之前的工作VLMo是完全一致的MOE，可以根据任务来切换FFN。</p>
 <img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250513170238887.png" srcset="/img/loading.gif" lazyload alt="Pre-training" style="zoom: 67%;" />
 
-<p>BEIT-3展示了它的不同模块可以完成不同任务，并且也用了上面CoCa的类似性能展示图，又叠了一层。。。</p>
+<p>BEIT-3展示了它的不同模块可以完成不同任务，可以单独使用Vision Encoder、Language Encoder、模态融合做推理、分类、生成等，取决你哪种FFN的Encoder以及用不用Decoder。</p>
 <img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250513170356130.png" srcset="/img/loading.gif" lazyload alt="BEiT Overview" style="zoom: 67%;" />
 
                 
