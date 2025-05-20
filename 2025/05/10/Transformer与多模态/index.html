@@ -54,7 +54,7 @@
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250513170238887.png">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250513170356130.png">
 <meta property="article:published_time" content="2025-05-10T13:40:00.650Z">
-<meta property="article:modified_time" content="2025-05-20T07:46:34.750Z">
+<meta property="article:modified_time" content="2025-05-20T07:48:28.514Z">
 <meta property="article:author" content="Pleinelune">
 <meta property="article:tag" content="Pleinelune">
 <meta name="twitter:card" content="summary_large_image">
@@ -308,7 +308,7 @@
 <img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250513171957853.png" srcset="/img/loading.gif" lazyload alt="Attention Structure" style="zoom:67%;" />
 
 <p>现在我们拥有Query、Key、Value三个向量矩。</p>
-<p>注意力的作用可以看做对查询和键来计算余弦相似性。假设每行代表一个单词，其对于Q、K矩阵的一行Q<del>1</del>·K<del>1</del> &#x3D; |Q<del>1</del>|·|K<del>1</del>|·cosθ为一个数。Q<del>1</del>和K<del>1</del>的方向相同时（即它们的夹角接近0），cosθ 接近1，所以Q<del>1</del>·K<del>1</del>较大。这表明Q<del>1</del>和K<del>1</del>很相似。反之，当 Q<del>1</del>和K<del>1</del>的方向相反时（即它们的夹角接近180度），cos(θ) 接近 -1，所以Q<del>1</del>·K<del>1</del>较小，甚至为负。这表明Q<del>1</del>和K<del>1</del>不相似。</p>
+<p>注意力的作用可以看做对查询和键来计算余弦相似性。假设每行代表一个单词，其对于Q、K矩阵的一行Q<del>1</del>·K<del>1</del> &#x3D; |Q<sub>1</sub>|·|K<sub>1</sub>|·cosθ为一个数。Q<del>1</del>和K<del>1</del>的方向相同时（即它们的夹角接近0），cosθ 接近1，所以Q<del>1</del>·K<del>1</del>较大。这表明Q<del>1</del>和K<del>1</del>很相似。反之，当 Q<del>1</del>和K<del>1</del>的方向相反时（即它们的夹角接近180度），cos(θ) 接近 -1，所以Q<del>1</del>·K<del>1</del>较小，甚至为负。这表明Q<del>1</del>和K<del>1</del>不相似。</p>
 <p>根据每行得出的相似度来计算得分，赋予权重，就完成了一次注意力计算。</p>
 <p>具体来说，其公式为：</p>
 <p>$$<br>\text { Attention }(Q, K, V)&#x3D;\operatorname{softmax}\left(\frac{Q K^{T}}{\sqrt{d_{k}}}\right) V<br>$$<br>也就是计算相似度得分后除以键向量维度的平方根，防止内积过大，使梯度更稳定。然后再进行softmax归一化后输出结果。输出的结果再去乘以V作为最后注意力输出的Z矩阵。</p>
