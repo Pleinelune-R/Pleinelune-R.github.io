@@ -54,7 +54,7 @@
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250513170238887.png">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250513170356130.png">
 <meta property="article:published_time" content="2025-05-10T13:40:00.650Z">
-<meta property="article:modified_time" content="2025-05-20T07:59:57.880Z">
+<meta property="article:modified_time" content="2025-05-20T09:08:19.418Z">
 <meta property="article:author" content="Pleinelune">
 <meta property="article:tag" content="Pleinelune">
 <meta name="twitter:card" content="summary_large_image">
@@ -308,7 +308,7 @@
 <img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250513171957853.png" srcset="/img/loading.gif" lazyload alt="Attention Structure" style="zoom:67%;" />
 
 <p>现在我们拥有Query、Key、Value三个向量矩阵。</p>
-<p>注意力的作用可以看做对查询和键来计算余弦相似性。假设每行代表一个单词，其对于Q、K矩阵的一行Q<sub>1</sub>·K<sub>1</sub> &#x3D; |Q<sub>1</sub>|·|K<sub>1</sub>|·cosθ为一个数。Q<sub>1</sub>和K<sub>1</sub>的方向相同时（即它们的夹角接近0），cosθ 接近1，所以Q<del>1</del>·K<del>1</del>较大。这表明Q<del>1</del>和K<del>1</del>很相似。反之，当 Q<sub>1</sub>和K<sub>1</sub>的方向相反时（即它们的夹角接近180度），cos(θ) 接近 -1，所以Q<sub>1</sub>·K<sub>1</sub>较小，甚至为负。这表明Q<sub>1</sub>和K<sub>1</sub>不相似。</p>
+<p>注意力的作用可以看做对查询和键来计算余弦相似性。假设每行代表一个单词，其对于Q、K矩阵的一行Q<sub>1</sub>·K<sub>1</sub> &#x3D; |Q<sub>1</sub>|·|K<sub>1</sub>|·cosθ为一个数。Q<sub>1</sub>和K<sub>1</sub>的方向相同时（即它们的夹角接近0），cosθ 接近1，所以Q<del>1</del>·K<del>1</del>较大。这表明Q<sub>1</sub>和K<sub>1</sub>很相似。反之，当 Q<sub>1</sub>和K<sub>1</sub>的方向相反时（即它们的夹角接近180度），cos(θ) 接近 -1，所以Q<sub>1</sub>·K<sub>1</sub>较小，甚至为负。这表明Q<sub>1</sub>和K<sub>1</sub>不相似。</p>
 <p>根据每行得出的相似度来计算得分，赋予权重，就完成了一次注意力计算。</p>
 <p>具体来说，其公式为：</p>
 <p>$$<br>\text { Attention }(Q, K, V)&#x3D;\operatorname{softmax}\left(\frac{Q K^{T}}{\sqrt{d_{k}}}\right) V<br>$$<br>也就是计算相似度得分后除以键向量维度的平方根，防止内积过大，使梯度更稳定。然后再进行softmax归一化后输出结果。输出的结果再去乘以V作为最后注意力输出的Z矩阵。</p>
@@ -419,7 +419,7 @@
 <p>Loss：ITC（在多模态融合前先对齐) + ITM（负样本太多直接训练难，选择最接近正样本的负样本） + MLM</p>
 <img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250513162024567.png" srcset="/img/loading.gif" lazyload alt="ALBEF Overview" style="zoom: 67%;" />
 
-<p>用动量蒸馏模型给图像-文本对比学习和掩码语言建模生成伪标签，不采用影响训练噪声数据（可能符合但不与Ground Truth相符），扩大有用数据集，one-hot and multi-hot。</p>
+<p>用动量蒸馏模型给图像-文本对比学习和掩码语言建模生成伪标签，不采用影响训练噪声数据（可能符合但不与Ground Truth相符），扩大有用数据集，one-hot to multi-hot。</p>
 <p>动量蒸馏实际上就是先训练出一个版本的ALBEF，把它作为动量模型，用动量模型输出的伪目标作为额外的监督标准，在原本Loss的基础上和伪目标的Loss进行KL-发散加权组合。同时动量模型作为教师模型也随着ALBEF的训练动态EMA更新参数权重。</p>
 <img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250513162108984.png" srcset="/img/loading.gif" lazyload alt="ITC/MIM examples" style="zoom: 67%;" />
 
