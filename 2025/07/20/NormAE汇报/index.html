@@ -19,12 +19,12 @@
   <meta name="author" content="Pleinelune">
   <meta name="keywords" content="Pleinelune">
   
-    <meta name="description" content="研究目的需要解决的问题基于液相色谱-质谱（LC-MS）的非靶向代谢组学受非线性批次效应（样品在不同批次中处理和测量时发生的系统性技术差异）的影响，掩盖了生物学效应，且难以校正，为解决该问题该文章在2020年提出了Normalization Autocoder。   现存技术问题 RLSC ：非线性平滑样条函数预测每个峰的批次效应。  QC-SVRC：支持向量机回归。  SERRF：随机森林。">
+    <meta name="description" content="NormAE：旨在消除基于液相色谱质谱的代谢组学数据中的批次效应的深度对抗学习模型 研究目的需要解决的问题基于液相色谱-质谱（LC-MS）的非靶向代谢组学受非线性批次效应（样品在不同批次中处理和测量时发生的系统性技术差异）的影响，掩盖了生物学效应，且难以校正，为解决该问题该文章在2020年提出了Normalization Autocoder。   现存技术问题 RLSC ：非线性平滑样条函数预测每">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NormAE：旨在消除基于液相色谱质谱的代谢组学数据中的批次效应的深度对抗学习模型">
 <meta property="og:url" content="http://pleinelune-r.github.io/2025/07/20/NormAE%E6%B1%87%E6%8A%A5/index.html">
 <meta property="og:site_name" content="Pleineblog">
-<meta property="og:description" content="研究目的需要解决的问题基于液相色谱-质谱（LC-MS）的非靶向代谢组学受非线性批次效应（样品在不同批次中处理和测量时发生的系统性技术差异）的影响，掩盖了生物学效应，且难以校正，为解决该问题该文章在2020年提出了Normalization Autocoder。   现存技术问题 RLSC ：非线性平滑样条函数预测每个峰的批次效应。  QC-SVRC：支持向量机回归。  SERRF：随机森林。">
+<meta property="og:description" content="NormAE：旨在消除基于液相色谱质谱的代谢组学数据中的批次效应的深度对抗学习模型 研究目的需要解决的问题基于液相色谱-质谱（LC-MS）的非靶向代谢组学受非线性批次效应（样品在不同批次中处理和测量时发生的系统性技术差异）的影响，掩盖了生物学效应，且难以校正，为解决该问题该文章在2020年提出了Normalization Autocoder。   现存技术问题 RLSC ：非线性平滑样条函数预测每">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250720190702146.png">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250720205058185.png">
@@ -41,7 +41,7 @@
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250722042736296.png">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250722044217028.png">
 <meta property="article:published_time" content="2025-07-20T08:10:45.469Z">
-<meta property="article:modified_time" content="2025-07-21T20:54:06.872Z">
+<meta property="article:modified_time" content="2025-07-21T20:55:06.555Z">
 <meta property="article:author" content="Pleinelune">
 <meta property="article:tag" content="Pleinelune">
 <meta name="twitter:card" content="summary_large_image">
@@ -238,7 +238,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          973 字
+          1k 字
         
       </span>
     
@@ -291,7 +291,7 @@
             
               <div class="markdown-body">
                 
-                <p><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250720190702146.png" srcset="/img/loading.gif" lazyload alt="NormAE"></p>
+                <h1 id="NormAE：旨在消除基于液相色谱质谱的代谢组学数据中的批次效应的深度对抗学习模型"><a href="#NormAE：旨在消除基于液相色谱质谱的代谢组学数据中的批次效应的深度对抗学习模型" class="headerlink" title="NormAE：旨在消除基于液相色谱质谱的代谢组学数据中的批次效应的深度对抗学习模型"></a>NormAE：旨在消除基于液相色谱质谱的代谢组学数据中的批次效应的深度对抗学习模型</h1><p><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250720190702146.png" srcset="/img/loading.gif" lazyload alt="NormAE"></p>
 <h2 id="研究目的"><a href="#研究目的" class="headerlink" title="研究目的"></a>研究目的</h2><h3 id="需要解决的问题"><a href="#需要解决的问题" class="headerlink" title="需要解决的问题"></a>需要解决的问题</h3><p>基于<strong>液相色谱-质谱（LC-MS）</strong>的非靶向代谢组学受<strong>非线性批次效应</strong>（样品在不同批次中处理和测量时发生的系统性技术差异）的影响，掩盖了生物学效应，且难以校正，为解决该问题该文章在2020年提出了Normalization Autocoder。</p>
 <img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250720205058185.png" srcset="/img/loading.gif" lazyload alt="image-20250720205058131" style="zoom:80%;" />
 
