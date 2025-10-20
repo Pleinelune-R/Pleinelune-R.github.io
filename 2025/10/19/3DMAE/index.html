@@ -19,35 +19,38 @@
   <meta name="author" content="Pleinelune">
   <meta name="keywords" content="Pleinelune">
   
-    <meta name="description" content="DeepS：通过深度神经网络加速3D质谱成像 研究目的3D-MSI相对于2D来说，可以绘制复杂生物结构的分子分布图。本文提出一种多尺度采样单元的系数采样策略，通过3D稀疏网络重建。并提出DeepS工作流程和3D-SSNet，旨在在20-30%的采样率下也能得到和全采样近似的结果，缩短3D MSI技术分析构建的时长。 数据集3D阿尔兹海默症小鼠脂质数据集 PDX胶质母瘤小鼠脑数据集 小鼠肾脏MALD">
+    <meta name="description" content="本文发表在CVPR-25。 研究目的自监督训练在3D医学影像里主要受三个限制：  预训练数据集规模过小：我们项目中有足够的数据。 使用的架构过时或不适合3D医学影像：重点研究以适配项目。 评估不充分  本文旨在对这三部分进行标准化改进来使MAE预训练适合3D医学影像病显著提升3D-CNN分割模型的性能。   Datasets预训练数据集专有的大脑MRI数据集，该数据集来自超过44个中心，10多种">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DeepS汇报">
-<meta property="og:url" content="http://pleinelune-r.github.io/2025/03/13/DeepS/index.html">
+<meta property="og:title" content="Revisiting MAE pre-training for 3D medical image segmentation">
+<meta property="og:url" content="http://pleinelune-r.github.io/2025/10/19/3DMAE/index.html">
 <meta property="og:site_name" content="Pleineblog">
-<meta property="og:description" content="DeepS：通过深度神经网络加速3D质谱成像 研究目的3D-MSI相对于2D来说，可以绘制复杂生物结构的分子分布图。本文提出一种多尺度采样单元的系数采样策略，通过3D稀疏网络重建。并提出DeepS工作流程和3D-SSNet，旨在在20-30%的采样率下也能得到和全采样近似的结果，缩短3D MSI技术分析构建的时长。 数据集3D阿尔兹海默症小鼠脂质数据集 PDX胶质母瘤小鼠脑数据集 小鼠肾脏MALD">
+<meta property="og:description" content="本文发表在CVPR-25。 研究目的自监督训练在3D医学影像里主要受三个限制：  预训练数据集规模过小：我们项目中有足够的数据。 使用的架构过时或不适合3D医学影像：重点研究以适配项目。 评估不充分  本文旨在对这三部分进行标准化改进来使MAE预训练适合3D医学影像病显著提升3D-CNN分割模型的性能。   Datasets预训练数据集专有的大脑MRI数据集，该数据集来自超过44个中心，10多种">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250405185957411.png">
-<meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250405185957412.png">
-<meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250406235949369.png">
-<meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250405185957413.png">
-<meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250405185957414.png">
-<meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250407000048202.png">
-<meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250405185957415.png">
-<meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250408171608959.png">
-<meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250408173223616.png">
-<meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250405185957417.png">
-<meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250405185957418.png">
-<meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250405185957419.png">
-<meta property="article:published_time" content="2025-03-13T13:54:28.296Z">
-<meta property="article:modified_time" content="2025-04-08T11:12:18.533Z">
+<meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251019152757630.png">
+<meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251020122110753.png">
+<meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251020132315125.png">
+<meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251019221120392.png">
+<meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251020182221943.png">
+<meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251020125742826.png">
+<meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251020124506294.png">
+<meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251020125832081.png">
+<meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251020130037449.png">
+<meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251020130428399.png">
+<meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251020152317051.png">
+<meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251020152538235.png">
+<meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251020152924220.png">
+<meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251020154127812.png">
+<meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251020154511289.png">
+<meta property="article:published_time" content="2025-10-19T07:25:35.441Z">
+<meta property="article:modified_time" content="2025-10-20T11:03:13.786Z">
 <meta property="article:author" content="Pleinelune">
 <meta property="article:tag" content="Pleinelune">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250405185957411.png">
+<meta name="twitter:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251019152757630.png">
   
   
   
-  <title>DeepS汇报 - Pleineblog</title>
+  <title>Revisiting MAE pre-training for 3D medical image segmentation - Pleineblog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -213,7 +216,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="DeepS汇报"></span>
+            <span id="subtitle" data-typed-text="Revisiting MAE pre-training for 3D medical image segmentation"></span>
           
         </div>
 
@@ -224,8 +227,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-03-13 21:54" pubdate>
-          2025年3月13日 晚上
+        <time datetime="2025-10-19 15:25" pubdate>
+          2025年10月19日 下午
         </time>
       </span>
     
@@ -236,7 +239,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.2k 字
+          1.7k 字
         
       </span>
     
@@ -247,7 +250,7 @@
         
         
         
-          11 分钟
+          15 分钟
         
       </span>
     
@@ -284,85 +287,118 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">DeepS汇报</h1>
+            <h1 id="seo-header">Revisiting MAE pre-training for 3D medical image segmentation</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="DeepS：通过深度神经网络加速3D质谱成像"><a href="#DeepS：通过深度神经网络加速3D质谱成像" class="headerlink" title="DeepS：通过深度神经网络加速3D质谱成像"></a>DeepS：通过深度神经网络加速3D质谱成像</h1><p><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250405185957411.png" srcset="/img/loading.gif" lazyload alt="所汇报文献"></p>
-<h2 id="研究目的"><a href="#研究目的" class="headerlink" title="研究目的"></a>研究目的</h2><p>3D-MSI相对于2D来说，可以绘制复杂生物结构的分子分布图。本文提出一种多尺度采样单元的系数采样策略，通过3D稀疏网络重建。并提出DeepS工作流程和3D-SSNet，旨在<strong>在20-30%的采样率</strong>下也能得到和全采样近似的结果，缩短3D MSI技术分析构建的时长。</p>
-<h2 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h2><p><strong>3D阿尔兹海默症小鼠脂质数据集</strong></p>
-<p>PDX胶质母瘤小鼠脑数据集</p>
-<p>小鼠肾脏MALDI数据集</p>
-<h2 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h2><h3 id="稀疏采样策略"><a href="#稀疏采样策略" class="headerlink" title="稀疏采样策略"></a>稀疏采样策略</h3><p>传统方法：集合S中按预定顺序选取1x1大小子集。</p>
-<p>本文方法：定义S由多个采样单元（正方形区域）构成，H x W会调整为H&#x2F;k x W&#x2F;k，不能整除部分填0。而s由人工掩码（稀疏化全采样数据时）和操作掩码决定。</p>
-<p><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250405185957412.png" srcset="/img/loading.gif" lazyload alt="掩码处理"></p>
-<p><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250406235949369.png" srcset="/img/loading.gif" lazyload alt="不同k值图像示例"></p>
-<p>所有<strong>未采样化为三通道（0,1,0）</strong>，采样复制值到三通道，以此区分未采样像素和低强度采样像素。</p>
-<p>论文地址未提供randon_mask函数代码。</p>
-<h3 id="3D-SSNet模型"><a href="#3D-SSNet模型" class="headerlink" title="3D-SSNet模型"></a>3D-SSNet模型</h3><p><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250405185957413.png" srcset="/img/loading.gif" lazyload alt="SSNet模型"></p>
-<p>Generator：稀疏图像重建。</p>
-<p><strong>Unet：</strong>收缩：4x下采样-卷积 扩展：卷积 + 4x上采样。</p>
-<p>Discriminator：区分真实、重建样本。</p>
-<p>步长2的六块4x4卷积层。</p>
-<p><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250405185957414.png" srcset="/img/loading.gif" lazyload alt="UNet结构"></p>
-<p>Loss：</p>
-<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs abnf"><span class="hljs-attribute">criterion</span> <span class="hljs-operator">=</span> nn.BCELoss()<br><span class="hljs-attribute">criterionL1</span> <span class="hljs-operator">=</span> nn.L1Loss()<br></code></pre></td></tr></table></figure>
-
-<p><strong>netD:</strong></p>
-<p><strong>errD_real</strong>：判别器对真实图像的判断损失</p>
+                <p><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251019152757630.png" srcset="/img/loading.gif" lazyload alt="title"></p>
+<p>本文发表在CVPR-25。</p>
+<h2 id="研究目的"><a href="#研究目的" class="headerlink" title="研究目的"></a>研究目的</h2><p>自监督训练在3D医学影像里主要受三个限制：</p>
 <ul>
-<li>使用二元交叉熵（<code>BCELoss</code>），标签为<code>real_label=1</code>。</li>
-<li>目标：最大化判别器对真实图像的识别能力（输出接近1）。</li>
+<li><strong>预训练数据集规模过小</strong>：我们项目中有足够的数据。</li>
+<li><strong>使用的架构过时或不适合3D医学影像</strong>：重点研究以适配项目。</li>
+<li><strong>评估不充分</strong></li>
 </ul>
-<p><strong>errD_fake</strong>：判别器对生成图像的判断损失</p>
-<ul>
-<li>同样使用<code>BCELoss</code>，标签为<code>fake_label=0</code>。</li>
-<li>目标：最大化判别器对生成图像的识别能力（输出接近0）。</li>
-</ul>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">output</span> = netD(input_real)<br><span class="hljs-attr">errD_real</span> = criterion(output, label)<br><span class="hljs-attr">output</span> = netD(fake.detach())<br><span class="hljs-attr">errD_fake</span> = criterion(output, label)<br><span class="hljs-attr">errD</span> = errD_real + errD_fake<br></code></pre></td></tr></table></figure>
+<p>本文旨在对这三部分进行标准化改进来使MAE预训练适合3D医学影像病显著提升3D-CNN分割模型的性能。</p>
+<img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251020122110753.png" srcset="/img/loading.gif" lazyload alt="Compare" style="zoom:80%;" />
 
-<p><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250407000048202.png" srcset="/img/loading.gif" lazyload alt="Ld"></p>
-<p><strong>netG:</strong></p>
-<p><strong>errG_D</strong>：生成器对抗损失</p>
+<h2 id="Datasets"><a href="#Datasets" class="headerlink" title="Datasets"></a>Datasets</h2><h3 id="预训练数据集"><a href="#预训练数据集" class="headerlink" title="预训练数据集"></a>预训练数据集</h3><p>专有的大脑MRI数据集，该数据集来自超过44个中心，10多种不同MR扫描仪，包含超过9000名患者，约44000张MRI扫描（最后剩余39168张）。</p>
 <ul>
-<li>使用<code>BCELoss</code>，但标签为<code>real_label=1</code>（欺骗判别器）。</li>
-<li>目标：生成图像使判别器输出接近1（误判为真）。</li>
+<li><p>保留<strong>T1、T2、T1 FLAIR</strong>和<strong>T2 FLAIR</strong>四个序列的图像。</p>
+</li>
+<li><p>丢弃任何轴上视野&lt;50 mm的图像，在任何方向上间距&gt; 6.5 mm的图像和文件大小&lt;200 kb的图像（空图像）。</p>
+</li>
 </ul>
-<p><strong>errG_l1</strong>：L1重建损失</p>
+<h3 id="训练数据集"><a href="#训练数据集" class="headerlink" title="训练数据集"></a>训练数据集</h3><ul>
+<li><p>多发性硬化（MS）病变数据集：MS FLAIR（T2W）</p>
+</li>
+<li><p>脑转移肿瘤数据集：Brain Mets（T1、T2F）</p>
+</li>
+<li><p>海马体数据集：Hippocampus （T1W）</p>
+</li>
+<li><p>卒中后病变数据集：Atlas22（T1W）</p>
+</li>
+<li><p>耳道内和耳道外前庭神经鞘瘤肿瘤数据集：CrossModa（T1W）</p>
+</li>
+</ul>
+<p>训练：验证：测试  &#x3D; <code>64：16：20</code></p>
+<h3 id="测试数据集"><a href="#测试数据集" class="headerlink" title="测试数据集"></a>测试数据集</h3><p>8个数据集包含颈动脉血管壁、风险器官（OAR）的分割、缺血性卒中病变、前口咽癌和转移性淋巴结、尼日利亚胶质母细胞瘤和高级别胶质瘤成像、脑动脉瘤及其周围脑组织等等。</p>
+<p>测试数据集被用来评估当训练微调后分割其他目标结构时，学习的表征的功效。</p>
+<p><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251020132315125.png" srcset="/img/loading.gif" lazyload alt="Distribution"></p>
+<h2 id="研究内容"><a href="#研究内容" class="headerlink" title="研究内容"></a>研究内容</h2><h3 id="MAE"><a href="#MAE" class="headerlink" title="MAE"></a>MAE</h3><p><strong>Masked Autoencoders Are Scalable Vision Learners</strong></p>
+<img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251019221120392.png" srcset="/img/loading.gif" lazyload alt="MAE Overview" style="zoom:67%;" />
+
+<p>MAE采用Transformer架构，实际上就是Mask 掉输入图像的随机的 patches 并进行重建（推荐掩码率75%），但是编码器和解码器是<strong>非对称</strong>的。</p>
+<p>MAE 的具体实现方法是：</p>
 <ul>
-<li>使用<code>L1Loss</code>，计算生成图像与真实图像的像素级差异。</li>
-<li>目标：约束生成图像与真实图像的结构一致性。</li>
-</ul>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">errG_D</span> = criterion(output, label)<br><br>        <br>        <span class="hljs-attr">errG_l1</span> = criterionL1(fake, input_real)<br>        <span class="hljs-attr">errG_l1</span> = errG_l1.mean()<br><br>        <span class="hljs-attr">errG</span> = (<span class="hljs-number">1</span> - wtl2) * errG_D + wtl2 * errG_l1<br></code></pre></td></tr></table></figure>
-
-<p><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250405185957415.png" srcset="/img/loading.gif" lazyload alt="Lg"></p>
-<h3 id="训练过程"><a href="#训练过程" class="headerlink" title="训练过程"></a>训练过程</h3><ul>
-<li><p>从集合{1，2，4，8，16}中选择一个值作为每个离子图像的采样单元的大小，生成一个随机的人工掩码，并执行模拟稀疏采样，遮挡80%。为每个epoch生成新的人工掩码，使3DSSNet了解截面的结构特征、适应不同大小的采样单元。</p>
+<li><p>首先通过 Linear Projection 和<strong>位置编码</strong>得到 image tokens。</p>
 </li>
-<li><p>计算真实图像和生成图像的判别损失（<code>errD_real</code>&#x2F;<code>errD_fake</code>），反向传播更新<code>netD</code>。</p>
+<li><p>随机 shuffle 这些 tokens，按照 masking ratio 扔掉最后的一部分。</p>
 </li>
-<li><p>生成图像（<code>fake = netG(input_cropped)</code>），计算对抗损失（<code>errG_D</code>）和L1损失（<code>errG_l1</code>），反向传播更新<code>netG</code>。</p>
+<li><p>把 <strong>unmasked patches 输出到 Encoder</strong> 中，得到这些 tokens 的表征。</p>
 </li>
-<li><p>如果有提升则保存参数，每五个epoch学习率衰减20% 。</p>
-</li>
-<li><p><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250408171608959.png" srcset="/img/loading.gif" lazyload alt="训练过程"></p>
+<li><p>把 Encoder 的输出，结合 masked tokens（视为此处需要恢复，后续也是计算mask部分loss），执行 unshuffle操作恢顺序，再一起输入到 Decoder 中。</p>
+<p>3DMAE即把VIT改为3D-VIT，每个patch变为<code>nxnxn</code>大小后平铺输入到transformer中。相较于常用于分割的3D-UNet相关的网络，ViT结构是比较好做MAE的。</p>
 </li>
 </ul>
-<p>在测试阶段，每个部分只生成一个操作掩码（M#2），由来自相同截面的所有离子图像共享。不需要使用相同的k值，k可以根据偏好设置。在此阶段，使用生成器网络，并丢弃了递归网络。</p>
-<p>为了在数据多样性和数据收集成本之间取得平衡，DeepS利用三个切片的全采样数据作为训练数据集，根据沿着Z轴的等距标准进行选择。剩余的组织切片被稀疏采样并用于测试。</p>
-<p><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250408173223616.png" srcset="/img/loading.gif" lazyload alt="DeepS总流程"></p>
-<h2 id="训练结果"><a href="#训练结果" class="headerlink" title="训练结果"></a>训练结果</h2><p><strong>Dataset：3D阿尔茨海默氏病小鼠脂质数据集</strong></p>
-<p>通过对采样率的对比实验表明，在模型训练过程中，<strong>采样率越低，重建效果越好</strong>。训练参数默认设置如下：50个训练时期，20%的模拟稀疏采样率，批量大小为8，剩余的组织切片被稀疏地采样以评估具有各种采样单元尺寸和采样比的模型的重建性能。</p>
-<p>在海马区选择一个10 × 10的区域来评估。计算了特定区域的平均质谱，总体平均绝对误差（MAE）为5.861 × 10−6，与原始光谱高度可比。</p>
-<p>固定k值，模型可以有效地恢复不同采样率下的离子图像，几乎所有的离子图像在50%的采样率下都被很好地重建，这由所有离子图像的PSNR值大于30和SSIM值大于0.8来证明。在20%的采样率下，超过90%的离子图像被良好地重建，PSNR和SSIM值分别高于27和0.7。</p>
-<p><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250405185957417.png" srcset="/img/loading.gif" lazyload alt="不同采样率重建效果"></p>
-<p>固定20%采样率，在k&#x3D;32后PSNR、SSIM数值显著减小。</p>
-<p><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250405185957418.png" srcset="/img/loading.gif" lazyload alt="不同掩码大小重建效果"></p>
-<p>模型迁移到胶质母细胞瘤PDX小鼠脑模型，该模型对不同质荷比和不同组织切片具有较高的重建精度。</p>
-<p>PDX和正常小鼠脑数据集在空间特征上存在差异，但该模型对两者都具有较好的重建效果。</p>
-<p><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250405185957419.png" srcset="/img/loading.gif" lazyload alt="不同质荷比重建效果"></p>
+<h3 id="3D-nnU-Net"><a href="#3D-nnU-Net" class="headerlink" title="3D nnU-Net"></a>3D nnU-Net</h3><p>  <img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251020182221943.png" srcset="/img/loading.gif" lazyload alt="nnUNet"></p>
+<p>nnU-Net实际上使用简单的U-Net架构，主要将复杂的手动方法配置流程系统化为固定参数、基于数据集属性的规则参数以及最少的经验参数进行优化，其处理方法流程如下：</p>
+<ul>
+<li>从训练数据中提取数据集特征，包括图像大小、体素间距、模态等信息。</li>
+<li>根据数据集特征,使用一系列经验规则自动配置分割流水线的参数，如预处理、网络拓扑结构、训练策略等。</li>
+<li>将未涵盖的少量参数(如模型选择、后处理)设置为在训练中经验优化。</li>
+<li>使用默认的U-Net网络架构模板训练多个模型。</li>
+<li>通过交叉验证,从训练好的多个模型中经验选择表现最好的单模型或模型组合。</li>
+<li>如果后处理能提高验证性能,则应用后处理。</li>
+</ul>
+<h3 id="MAE-3D-nnU-Net"><a href="#MAE-3D-nnU-Net" class="headerlink" title="MAE 3D nnU-Net"></a>MAE 3D nnU-Net</h3><p>为了在3D-CNN架构使用MAE训练，本文采取了几个措施：</p>
+<ul>
+<li><p>训练前，所有3D MRI图像都会被重采样到统一的物理空间间距 <strong><code>[1x1x1]</code>毫米</strong>，并进行Z-score归一化（减均值，除标准差），每个样本固定使用**<code>160x160x160</code>**大小的输入。</p>
+</li>
+<li><p><strong>针对CNN的掩码与稀疏化处理</strong>：CNN需要规则的网格输入，无法像ViT那样直接丢弃掩码token。为此，论文引入了一套<strong>稀疏化处理</strong>流程：</p>
+<p><strong>稀疏卷积：</strong>在编码器部分，使用稀疏卷积进行操作，卷积核在计算时，其覆盖范围内可能同时包含真实像素和被掩码的零值区域。随着网络层数的加深，这些零值会通过感受野“污染”有效特征的计算。 所以需要在每一层卷积操作之后，都<strong>重新应用输入时生成的掩码</strong>。</p>
+<p><strong>掩码令牌</strong>：对被掩码的区域填充可学习的<strong>掩码令牌</strong>，以保持空间结构信息。</p>
+<p><strong>致密化卷积</strong>：在编码器和解码器之间，应用一个小的**<code>3x3x3</code>卷积**。（除了最高分辨率外）利用周围有效像素的信息，对掩码令牌所在的区域进行初步的、基于上下文的“填充”或“平滑”，使特征图在空间上更加连续。</p>
+<h3 id="消融结果"><a href="#消融结果" class="headerlink" title="消融结果"></a>消融结果</h3><p><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251020125742826.png" srcset="/img/loading.gif" lazyload alt="Sparsification"></p>
+<p>新增的稀疏卷积、掩码令牌和致密化卷积三部进行消融实验，三个部分全部应用后有一定的效果。</p>
+</li>
+</ul>
+<h2 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h2><h3 id="对比结果"><a href="#对比结果" class="headerlink" title="对比结果"></a>对比结果</h3><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251020124506294.png" srcset="/img/loading.gif" lazyload alt="Fine-Tuning" style="zoom:80%;" />
 
+<ul>
+<li><p>冻结编码器权重是有害的</p>
+</li>
+<li><p>应该适当减少学习率</p>
+</li>
+<li><p>Warm-up是必不可少的</p>
+</li>
+</ul>
+<img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251020125832081.png" srcset="/img/loading.gif" lazyload alt="Mask ratio" style="zoom:80%;" />
+
+<p>和原文推荐的mask ratio差不多，都在60%到75%之间效果最好，本文采用60%-90%的动态mask ratio，和75%相差不大。</p>
+<img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251020130037449.png" srcset="/img/loading.gif" lazyload alt="image-20251020130037418" style="zoom:80%;" />
+
+<p>S3D超过了development datasets所有的Baseline方法。</p>
+<img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251020130428399.png" srcset="/img/loading.gif" lazyload alt="all datasets" style="zoom:80%;" />
+
+<p>最终评估采用Dice相似系数和归一化表面距离来评估，在development和test datasets中的表现（no Dyn.是单独适应每个下游数据集的原始nnU-Net，No Fixed表示使用<strong>固定配置</strong>进行从零开始训练的nnU-Net）</p>
+<p><strong>No Fixed vs No Dyn.<strong>：体现了</strong>nnU-Net自动化配置流程本身的价值有多大</strong></p>
+<p><strong>No Dyn. vs S3D</strong>：体现了<strong>自监督预训练是否能带来额外的的性能提升</strong></p>
+<p>对于动态nnU-Net表现不佳的大多数数据集中，预训练有助于恢复性能。然而，在某些情况下，例如D5，固定配置的nnU-Net仍然是最好的。</p>
+<h3 id="ABCD数据集训练结果"><a href="#ABCD数据集训练结果" class="headerlink" title="ABCD数据集训练结果"></a>ABCD数据集训练结果</h3><p><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251020152317051.png" srcset="/img/loading.gif" lazyload alt="pre-training in ABCD"></p>
+<p>使用ABCD dataset（青少年大脑认知发展多模态MRI数据）训练的模型平均DSC低0.6%以及平均NSD低0.6%，说明虽然MAE在一般计算机视觉任务中可以拓展，但由于医学影像领域的独特性，迁移到下游分割任务时可能泛化能力下降</p>
+<p><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251020152538235.png" srcset="/img/loading.gif" lazyload alt="fine-tuning"></p>
+<p>S3D使用40个左右小样本进行微调就和所有样本从头开始训练的效果差距不大（D4在这里差距比较大，因为样本更多）</p>
+<p>D1<code>38/10/12</code>，D2<code>67/17/21</code>，D3<code>166/42/52</code>，D4<code>419/105/131</code>，D5<code>134/34/42</code></p>
+<p><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251020152924220.png" srcset="/img/loading.gif" lazyload alt="pre-training length"></p>
+<p>更长的预训练并不会导致性能的提高，在250k steps时反而取得最好效果。</p>
+<h3 id="五折验证结果"><a href="#五折验证结果" class="headerlink" title="五折验证结果"></a>五折验证结果</h3><p><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251020154127812.png" srcset="/img/loading.gif" lazyload alt="5 fold"></p>
+<p>复制预训练的权重并在解码器预热阶段期间冻结结果最稳定且同样很好。</p>
+<img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251020154511289.png" srcset="/img/loading.gif" lazyload alt="training length" style="zoom:80%;" />
+
+<p>在不到正常训练时间的15%之后，就可以实现最终性能的很大一部分。</p>
+<h2 id="原文"><a href="#原文" class="headerlink" title="原文"></a>原文</h2>
                 
               </div>
             
@@ -379,8 +415,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>DeepS汇报</div>
-      <div>http://pleinelune-r.github.io/2025/03/13/DeepS/</div>
+      <div>Revisiting MAE pre-training for 3D medical image segmentation</div>
+      <div>http://pleinelune-r.github.io/2025/10/19/3DMAE/</div>
     </div>
     <div class="license-meta">
       
@@ -392,7 +428,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年3月13日</div>
+          <div>2025年10月19日</div>
         </div>
       
       
@@ -424,9 +460,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/04/15/ModelCompare/" title="Segment Model Compare">
+                      <a href="/2025/10/20/%E6%80%BB%E5%92%8C/" title="丝线">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Segment Model Compare</span>
+                        <span class="hidden-mobile">丝线</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -434,7 +470,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/03/06/%E7%94%A8Git%E7%AE%A1%E7%90%86Repo/" title="用git管理repo">
+                      <a href="/2025/08/05/%E7%94%A8Git%E7%AE%A1%E7%90%86Repo/" title="用git管理repo">
                         <span class="hidden-mobile">用git管理repo</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>

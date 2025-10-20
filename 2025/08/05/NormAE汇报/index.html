@@ -19,12 +19,12 @@
   <meta name="author" content="Pleinelune">
   <meta name="keywords" content="Pleinelune">
   
-    <meta name="description" content="NormAE：旨在消除基于液相色谱质谱的代谢组学数据中的批次效应的深度对抗学习模型 研究目的需要解决的问题基于液相色谱-质谱（LC-MS）的非靶向代谢组学受非线性批次效应（样品在不同批次中处理和测量时发生的系统性技术差异）的影响，掩盖了生物学效应，且难以校正，为解决该问题该文章在2020年提出了Normalization Autocoder。   现存技术问题 RLSC ：非线性平滑样条函数预测每">
+    <meta name="description" content="NormAE：旨在消除基于液相色谱质谱的代谢组学数据中的批次效应的深度对抗学习模型 研究目的需要解决的问题基于液相色谱-质谱（LC-MS）的非靶向代谢组学受非线性批次效应（样品在不同批次处理和测量时发生的系统性技术差异）的影响，掩盖了生物学效应，且难以校正，为解决该问题该文章在2020年提出了Normalization Autoencoder。   现存技术问题    方法 优点 缺点    No">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NormAE：旨在消除基于液相色谱质谱的代谢组学数据中的批次效应的深度对抗学习模型">
-<meta property="og:url" content="http://pleinelune-r.github.io/2025/07/20/NormAE%E6%B1%87%E6%8A%A5/index.html">
+<meta property="og:url" content="http://pleinelune-r.github.io/2025/08/05/NormAE%E6%B1%87%E6%8A%A5/index.html">
 <meta property="og:site_name" content="Pleineblog">
-<meta property="og:description" content="NormAE：旨在消除基于液相色谱质谱的代谢组学数据中的批次效应的深度对抗学习模型 研究目的需要解决的问题基于液相色谱-质谱（LC-MS）的非靶向代谢组学受非线性批次效应（样品在不同批次中处理和测量时发生的系统性技术差异）的影响，掩盖了生物学效应，且难以校正，为解决该问题该文章在2020年提出了Normalization Autocoder。   现存技术问题 RLSC ：非线性平滑样条函数预测每">
+<meta property="og:description" content="NormAE：旨在消除基于液相色谱质谱的代谢组学数据中的批次效应的深度对抗学习模型 研究目的需要解决的问题基于液相色谱-质谱（LC-MS）的非靶向代谢组学受非线性批次效应（样品在不同批次处理和测量时发生的系统性技术差异）的影响，掩盖了生物学效应，且难以校正，为解决该问题该文章在2020年提出了Normalization Autoencoder。   现存技术问题    方法 优点 缺点    No">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250720190702146.png">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250720205058185.png">
@@ -34,14 +34,15 @@
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250722021302076.png">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250722021459663.png">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250722022135367.png">
+<meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250722182347525.png">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250722040811899.png">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250722042157370.png">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250722042335917.png">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250722042428480.png">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250722042736296.png">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250722044217028.png">
-<meta property="article:published_time" content="2025-07-20T08:10:45.469Z">
-<meta property="article:modified_time" content="2025-07-21T20:55:06.555Z">
+<meta property="article:published_time" content="2025-08-04T16:29:29.352Z">
+<meta property="article:modified_time" content="2025-07-22T12:07:37.305Z">
 <meta property="article:author" content="Pleinelune">
 <meta property="article:tag" content="Pleinelune">
 <meta name="twitter:card" content="summary_large_image">
@@ -226,8 +227,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-07-20 16:10" pubdate>
-          2025年7月20日 下午
+        <time datetime="2025-08-05 00:29" pubdate>
+          2025年8月5日 凌晨
         </time>
       </span>
     
@@ -238,7 +239,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1k 字
+          1.2k 字
         
       </span>
     
@@ -249,7 +250,7 @@
         
         
         
-          9 分钟
+          11 分钟
         
       </span>
     
@@ -292,25 +293,56 @@
               <div class="markdown-body">
                 
                 <h1 id="NormAE：旨在消除基于液相色谱质谱的代谢组学数据中的批次效应的深度对抗学习模型"><a href="#NormAE：旨在消除基于液相色谱质谱的代谢组学数据中的批次效应的深度对抗学习模型" class="headerlink" title="NormAE：旨在消除基于液相色谱质谱的代谢组学数据中的批次效应的深度对抗学习模型"></a>NormAE：旨在消除基于液相色谱质谱的代谢组学数据中的批次效应的深度对抗学习模型</h1><p><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250720190702146.png" srcset="/img/loading.gif" lazyload alt="NormAE"></p>
-<h2 id="研究目的"><a href="#研究目的" class="headerlink" title="研究目的"></a>研究目的</h2><h3 id="需要解决的问题"><a href="#需要解决的问题" class="headerlink" title="需要解决的问题"></a>需要解决的问题</h3><p>基于<strong>液相色谱-质谱（LC-MS）</strong>的非靶向代谢组学受<strong>非线性批次效应</strong>（样品在不同批次中处理和测量时发生的系统性技术差异）的影响，掩盖了生物学效应，且难以校正，为解决该问题该文章在2020年提出了Normalization Autocoder。</p>
+<h2 id="研究目的"><a href="#研究目的" class="headerlink" title="研究目的"></a>研究目的</h2><h3 id="需要解决的问题"><a href="#需要解决的问题" class="headerlink" title="需要解决的问题"></a>需要解决的问题</h3><p>基于<strong>液相色谱-质谱（LC-MS）</strong>的非靶向代谢组学受<strong>非线性批次效应</strong>（样品在不同批次处理和测量时发生的系统性技术差异）的影响，掩盖了生物学效应，且难以校正，为解决该问题该文章在2020年提出了Normalization Autoencoder。</p>
 <img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250720205058185.png" srcset="/img/loading.gif" lazyload alt="image-20250720205058131" style="zoom:80%;" />
 
 <h3 id="现存技术问题"><a href="#现存技术问题" class="headerlink" title="现存技术问题"></a>现存技术问题</h3><ul>
-<li><p>RLSC ：非线性平滑样条函数预测每个峰的批次效应。</p>
-</li>
-<li><p>QC-SVRC：支持向量机回归。</p>
-</li>
-<li><p>SERRF：随机森林。</p>
+<li><table>
+<thead>
+<tr>
+<th align="left">方法</th>
+<th align="left">优点</th>
+<th align="left">缺点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">NormAE</td>
+<td align="left">非线性建模，扩展性强，联合校正多种效应</td>
+<td align="left"><strong>需大量数据，依赖批次标签</strong></td>
+</tr>
+<tr>
+<td align="left">WaveICA</td>
+<td align="left">适合非平稳信号，能分离复杂噪声</td>
+<td align="left"><strong>实现复杂</strong>，参数敏感，可能损失信号</td>
+</tr>
+<tr>
+<td align="left">ComBat</td>
+<td align="left">经典方法，稳健，易实现，适合线性批次效应</td>
+<td align="left"><strong>仅线性校正，难处理复杂效应</strong>，不能校正顺序偏差</td>
+</tr>
+<tr>
+<td align="left">ICA</td>
+<td align="left">能分离独立噪声，算法成熟</td>
+<td align="left"><strong>独立性假设强</strong>，结果解释难，需人工判断批次成分</td>
+</tr>
+<tr>
+<td align="left">QC-RLSC</td>
+<td align="left">校正时间漂移，适合高通量数据，直观易用</td>
+<td align="left"><strong>依赖QC样本</strong>，仅校正顺序漂移，<strong>对批次效应有限</strong></td>
+</tr>
+</tbody></table>
 </li>
 </ul>
-<p>由于这些拟合模型中样本泛化能力差、数量少，过度拟合难以避免。其他组学领域解决批次效应的方式又依赖于部分假设，不符合代谢组学。</p>
-<h2 id="NormAE"><a href="#NormAE" class="headerlink" title="NormAE"></a>NormAE</h2><h3 id="样品"><a href="#样品" class="headerlink" title="样品"></a>样品</h3><p>两份LC_MS数据集均为医院采集：一个包含四批共644份血浆样品，85份QC，另一个包含四批共644份血浆样品，81份QC。（Quality control samples，来自生物受试者的每个样品的小等分试样组成的混合样品）</p>
-<p>4个批次，分别由192、192、184和76个样品组成，酰胺数据集中有25、25、24和11个QC，T3数据集中分别有25、21和10个QC。</p>
+<p>由于这些拟合模型中样本泛化能力差、数量少，难以避免过度拟合。其他组学领域解决批次效应的方式又依赖于部分领域内假设，不符合代谢组学。</p>
+<h2 id="NormAE"><a href="#NormAE" class="headerlink" title="NormAE"></a>NormAE</h2><h3 id="样品"><a href="#样品" class="headerlink" title="样品"></a>样品</h3><p>两份LC_MS数据集均为医院采集：一个包含四批共644份血浆样品，<strong>85份QC</strong>，另一个包含四批共644份血浆样品，<strong>81份QC</strong>。（Quality control samples，来自生物受试者的每个样品的小等分试样组成的混合样品）</p>
+<p>4个批次，分别由192、192、184和76个样品组成，酰胺数据集中有25、25、24和11个QC，T3数据集中分别有25、25、21和10个QC。</p>
+<p>QC样本可参与训练，提升模型的识别能力，也可用于评估校正效果。但NormAE本身不依赖QC样本，只要有批次&#x2F;顺序标签即可训练。</p>
 <h3 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h3><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250720205122698.png" srcset="/img/loading.gif" lazyload alt="NormAE Overview(C)" style="zoom: 67%;" />
 
 <p>NormAE分为四个结构：Encoder、Decoder、F<sub>b</sub>、F<sub>o</sub>，都是MLP结构，其中的层数如下所示：</p>
 <img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250722023612806.png" srcset="/img/loading.gif" lazyload alt="网络架构" style="zoom:67%;" />
 
+<p>NormAE的要求：<strong>数据必须存在批次标签</strong>。</p>
 <p>假设数据存在批次标签Y^b^，定义一个有Encoder和Decoder的AutoCoder对该数据进行重构。Encoder训练目标是让F<sub>b</sub>分类效果差。Decoder则合并批标签和潜在信息以重建原始信息，要确保Encoder不丢失有用信息。</p>
 <img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250720224023657.png" srcset="/img/loading.gif" lazyload alt="image-20250720224023589" style="zoom:50%;" />
 
@@ -322,17 +354,19 @@
 <p>训练时交替运行编码器和判别器，同时引入<strong>对抗网络</strong>：在自编码器旁边并行训练一个<strong>批次分类器</strong>（预测样品所属批次）和一个<strong>批内判别器</strong>（去除比批间标签更多的批效应，例如批内效应不能用批标签来表征，而是与注射顺序相关），以对抗性正则化驱动自编码器学习使不同批次难以区分的潜在表示。训练目标包括数据重构损失和对抗损失等，迫使解码器输出具有去除批次效应的数据。</p>
 <p>加入F<del>o</del>之后需要优化的损失函数为：</p>
 <p><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250722022135367.png" srcset="/img/loading.gif" lazyload></p>
+<img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250722182347525.png" srcset="/img/loading.gif" lazyload alt="image-20250722182347407" style="zoom:67%;" />
+
 <p>训练首先使用loss<sub>rec</sub>对编码器E和解码器D进行了1000个epoch的预训练，然后使用loss<sub>disc-b</sub>对鉴别器F<sub>b</sub>进行了10个epoch的预训练，使用loss<sub>disc−o</sub>对鉴别器F<sub>o</sub>进行了10个epoch的预训练。迭代阶段进行了700个epoch的训练。</p>
 <h2 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h2><p>下图分别展示了处理后（以T3数据集为例)：</p>
 <ul>
-<li>PCA降维后的空间中，所有样本与QC之间的欧氏距离的平均值。</li>
+<li>PCA降维后的空间中，QC之间的欧氏距离的平均值。</li>
 <li>QC两两之间的皮尔逊相关系数的平均值，aPCC越接近1，说明QC样本之间的表达谱非常相似</li>
 <li>相对标准偏差（RSD, Relative Standard Deviation）在QC的15%和30%范围内的峰比例，pRSD说明小于该RSD的比例。</li>
 </ul>
 <img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250722040811899.png" srcset="/img/loading.gif" lazyload alt="image-20250722040811844" style="zoom:67%;" />
 
-<p>具体来看，不同方法处理后QC（实心圆）和所有数据（空心圆）PCA如下：</p>
-<img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250722042157370.png" srcset="/img/loading.gif" lazyload alt="PCA" style="zoom:80%;" />
+<p>具体来看，不同方法处理后QC（实心圆）和所有数据（空心圆）PCA评分如下：</p>
+<img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250722042157370.png" srcset="/img/loading.gif" lazyload alt="PCA" style="zoom: 80%;" />
 
 <p>QC处理前后的对PCC如下：</p>
 <img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20250722042335917.png" srcset="/img/loading.gif" lazyload alt="PCC" style="zoom:80%;" />
@@ -345,7 +379,7 @@
 
 <h2 id="相关工作"><a href="#相关工作" class="headerlink" title="相关工作"></a>相关工作</h2><p>RALPS(2023)：</p>
 <ul>
-<li><p>也是对抗学习思想，但更强调鲁棒性和伪批次（pseudo-batch）的构建。</p>
+<li><p>也是对抗学习思想，但更强调健壮性和伪批次（pseudo-batch）的构建。</p>
 </li>
 <li><p>通过构造“伪批次”或“伪标签”，让模型在没有真实批次标签的情况下也能校正批次效应。</p>
 </li>
@@ -369,7 +403,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>NormAE：旨在消除基于液相色谱质谱的代谢组学数据中的批次效应的深度对抗学习模型</div>
-      <div>http://pleinelune-r.github.io/2025/07/20/NormAE汇报/</div>
+      <div>http://pleinelune-r.github.io/2025/08/05/NormAE汇报/</div>
     </div>
     <div class="license-meta">
       
@@ -381,7 +415,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年7月20日</div>
+          <div>2025年8月5日</div>
         </div>
       
       
@@ -413,12 +447,18 @@
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/2025/08/05/Pytorch%20lightning%E5%AD%A6%E4%B9%A0/" title="Pytorch lightning学习">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Pytorch lightning学习</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/07/11/Pytorch%20lightning%E5%AD%A6%E4%B9%A0/" title="Pytorch lightning学习">
-                        <span class="hidden-mobile">Pytorch lightning学习</span>
+                      <a href="/2025/08/05/MSI%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B/" title="MSI数据处理流程">
+                        <span class="hidden-mobile">MSI数据处理流程</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
