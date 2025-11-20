@@ -39,12 +39,12 @@
 <meta property="og:image" content="https://s2.loli.net/2024/11/27/1xn5UVXD3p9NWH6.png">
 <meta property="og:image" content="https://s2.loli.net/2024/11/27/eDyZOpgkLwXjKIn.png">
 <meta property="og:image" content="https://s2.loli.net/2024/11/27/Em8BXquW9CUv5Td.png">
-<meta property="og:image" content="c:\Users\ForRiver\Downloads/image-20251119204732563.png">
-<meta property="og:image" content="c:\Users\ForRiver\Downloads/image-20251119212356657.png">
-<meta property="og:image" content="c:\Users\ForRiver\Downloads/image-20251119213149015.png">
-<meta property="og:image" content="c:\Users\ForRiver\Downloads/image-20251119215113394.png">
+<meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251120165051237.png">
+<meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251120165049155.png">
+<meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251120165046254.png">
+<meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251120165044240.png">
 <meta property="article:published_time" content="2025-08-04T16:29:29.340Z">
-<meta property="article:modified_time" content="2025-11-20T08:38:23.933Z">
+<meta property="article:modified_time" content="2025-11-20T08:50:54.547Z">
 <meta property="article:author" content="Pleinelune">
 <meta property="article:tag" content="Pleinelune">
 <meta name="twitter:card" content="summary_large_image">
@@ -371,7 +371,7 @@
 
 <h1 id="三、imzML数据预处理-Cardinal"><a href="#三、imzML数据预处理-Cardinal" class="headerlink" title="三、imzML数据预处理(Cardinal)"></a>三、imzML数据预处理(Cardinal)</h1><p><em>Cardinal</em> 原生支持读写 imzML（包括 “continuous” 和 “processed” 类型），当然我们要处理的都是每个频谱具有不同的m&#x2F;z值的 “continuous” 类型数据。</p>
 <p><em>Cardinal 3.6</em>引入了一套简单的新数据结构如下，用于组织MS成像实验的数据。</p>
-<img src="C:\Users\ForRiver\Downloads/image-20251119204732563.png" srcset="/img/loading.gif" lazyload alt="image-20251119204732563" style="zoom:80%;" />
+<img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251120165051237.png" srcset="/img/loading.gif" lazyload alt="image-20251119204732563" style="zoom:80%;" />
 
 <ul>
 <li><p><code>MSImagingArrays</code>：<strong>Continuous (连续) 模式</strong>读取后格式，以下简称msa。</p>
@@ -392,7 +392,7 @@
 <p>通过spectraData函数你可以初步了解你的数据，一般情况下一个对象必须至少有两个为“mz”和“intensity”的数组，分别是m&#x2F;z数组和强度数组的列表。</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">spectraData</span><span class="hljs-params">(msa)</span></span><br></code></pre></td></tr></table></figure>
 
-<img src="C:\Users\ForRiver\Downloads/image-20251119212356657.png" srcset="/img/loading.gif" lazyload alt="image-20251119212356657" style="zoom:80%;" />
+<img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251120165049155.png" srcset="/img/loading.gif" lazyload alt="image-20251119212356657" style="zoom:80%;" />
 
 <p>我们可以读取一些数据出来查看：</p>
 <figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">mz</span>(msa)[<span class="hljs-number">1</span>:<span class="hljs-number">2</span>] # 提取前<span class="hljs-number">2</span>个mz数组<br><span class="hljs-attribute">intensity</span>(msa)[<span class="hljs-number">1</span>:<span class="hljs-number">2</span>] # 提取前<span class="hljs-number">2</span>个intensity数组<br></code></pre></td></tr></table></figure>
@@ -400,7 +400,7 @@
 <figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-built_in">pixelData</span>(msa)# 查看像素元数据，可以简写为pData<br></code></pre></td></tr></table></figure>
 
 <p>运行后会给你提供三列，包含像素的x轴、y轴以及批次信息。</p>
-<img src="C:\Users\ForRiver\Downloads/image-20251119213149015.png" srcset="/img/loading.gif" lazyload alt="image-20251119213149015" style="zoom:80%;" />
+<img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251120165046254.png" srcset="/img/loading.gif" lazyload alt="image-20251119213149015" style="zoom:80%;" />
 
 <p>上面展示的也许不太直观，你可以通过plot来可视化查看质谱：</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">plot(msa, <span class="hljs-attribute">i</span>=c(1, 322) ,<span class="hljs-attribute">superpose</span>=<span class="hljs-literal">TRUE</span>)<br></code></pre></td></tr></table></figure>
@@ -408,7 +408,7 @@
 <p>其中i后面跟的是像素，这里展示了第一个像素和第五个像素的图片，用superpose&#x3D;TRUE的参数重合对比。值得一提的是，根据刚才查到的元数据，图像是321x330大小，也就是说此时我的第322个像素等效于以下这种用像素坐标来指定的方式：</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">plot(msa, <span class="hljs-attribute">coord</span>=list(x=2, <span class="hljs-attribute">y</span>=1))<br></code></pre></td></tr></table></figure>
 
-<img src="C:\Users\ForRiver\Downloads/image-20251119215113394.png" srcset="/img/loading.gif" lazyload alt="image-20251119215113394" style="zoom: 50%;" />
+<img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251120165044240.png" srcset="/img/loading.gif" lazyload alt="image-20251119215113394" style="zoom: 50%;" />
 
 <p>大致了解你手中的imzML数据后，可以开始进行数据预处理了。</p>
 <h2 id="预处理流程"><a href="#预处理流程" class="headerlink" title="预处理流程"></a>预处理流程</h2><h3 id="归一化处理"><a href="#归一化处理" class="headerlink" title="归一化处理"></a>归一化处理</h3><p>支持的归一化方法包括：</p>
