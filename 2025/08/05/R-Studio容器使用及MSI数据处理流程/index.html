@@ -27,22 +27,23 @@
 <meta property="og:description" content="Version：2.1 2025&#x2F;11&#x2F;19 更新R-Studio标准容器连接 更新过时的Cardinal包函数  一、MSI数据常用的数据类型有哪些？在质谱成像领域内，你大概率会见到的两种文件格式：    ● Raw文件格式    ● imzML原始数据文件格式    事实上不同厂家的质谱仪器生产出来的Raw质谱数据是不一样的，主流公司的数据格式如下表所示。 如何从Raw数据">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://pleinelune-r.github.io/img/MSI%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B/1-2.png">
-<meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251120161522694.png">
-<meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251120161705119.png">
-<meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251120175018054.png">
-<meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251120162439370.png">
-<meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251120175102340.png">
+<meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251120180600258.png">
+<meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251120180746424.png">
 <meta property="og:image" content="https://s2.loli.net/2024/10/23/JtnciVDZ435kx8O.png">
 <meta property="og:image" content="https://s2.loli.net/2024/10/23/QcDnkq6fMvNZJW1.png">
 <meta property="og:image" content="https://s2.loli.net/2024/11/27/1xn5UVXD3p9NWH6.png">
 <meta property="og:image" content="https://s2.loli.net/2024/11/27/eDyZOpgkLwXjKIn.png">
 <meta property="og:image" content="https://s2.loli.net/2024/11/27/Em8BXquW9CUv5Td.png">
+<meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251120161522694.png">
+<meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251120161705119.png">
+<meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251120175018054.png">
+<meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251120175102340.png">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251120165051237.png">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251120165049155.png">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251120165046254.png">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251120165044240.png">
 <meta property="article:published_time" content="2025-08-04T16:29:29.340Z">
-<meta property="article:modified_time" content="2025-11-20T09:53:00.987Z">
+<meta property="article:modified_time" content="2025-11-20T10:08:39.698Z">
 <meta property="article:author" content="Pleinelune">
 <meta property="article:tag" content="Pleinelune">
 <meta name="twitter:card" content="summary_large_image">
@@ -239,7 +240,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2k 字
+          2.1k 字
         
       </span>
     
@@ -250,7 +251,7 @@
         
         
         
-          17 分钟
+          18 分钟
         
       </span>
     
@@ -299,22 +300,13 @@
 </ul>
 <h1 id="一、MSI数据"><a href="#一、MSI数据" class="headerlink" title="一、MSI数据"></a>一、MSI数据</h1><h2 id="常用的数据类型有哪些？"><a href="#常用的数据类型有哪些？" class="headerlink" title="常用的数据类型有哪些？"></a>常用的数据类型有哪些？</h2><p>在质谱成像领域内，你大概率会见到的两种文件格式：<br>    ● Raw文件格式<br>    ● imzML原始数据文件格式<br>    事实上不同厂家的质谱仪器生产出来的Raw质谱数据是不一样的，主流公司的数据格式如下表所示。<br><img src="/img/MSI%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B/1-2.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="如何从Raw数据转换成imzML数据？"><a href="#如何从Raw数据转换成imzML数据？" class="headerlink" title="如何从Raw数据转换成imzML数据？"></a>如何从Raw数据转换成imzML数据？</h2><p>理论上我们只需要知道扫描斑点数信息，就可以直接从Raw文件中计算出质谱成像所需要的空间坐标信息。  	本文侧重点在于对imzML文件的预处理，对于Raw文件可以用以下的链接提供的软件来进行Raw to imzML的转换，试着使用他给出的示例文件来进行练习。<br>        <a target="_blank" rel="noopener" href="https://www.ms-imaging.org/imzml/software-tools/raw-to-imzml-converter/">https://www.ms-imaging.org/imzml/software-tools/raw-to-imzml-converter/</a></p>
-<h1 id="二、R包标准容器连接"><a href="#二、R包标准容器连接" class="headerlink" title="二、R包标准容器连接"></a>二、R包标准容器连接</h1><p>容器的介绍及相关网站详见：<a target="_blank" rel="noopener" href="https://neonexusx.github.io/2024/09/21/Bionet-Server01%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%20%E2%80%94%E2%80%94Docker%E7%AF%87/">https://neonexusx.github.io/2024/09/21/Bionet-Server01%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%20%E2%80%94%E2%80%94Docker%E7%AF%87/</a></p>
-<h2 id="R语言连接办法"><a href="#R语言连接办法" class="headerlink" title="R语言连接办法"></a>R语言连接办法</h2><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251120161522694.png" srcset="/img/loading.gif" lazyload alt="img" style="zoom:80%;" />
+<h1 id="二、R包标准容器连接"><a href="#二、R包标准容器连接" class="headerlink" title="二、R包标准容器连接"></a>二、R包标准容器连接</h1><h2 id="R语言连接办法"><a href="#R语言连接办法" class="headerlink" title="R语言连接办法"></a>R语言连接办法</h2><p>R部署在服务器8787端口，登录账号密码为姓名，姓名+123，第一次登陆后就需要自己修改为更复杂的密码。</p>
+<img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251120180600258.png" srcset="/img/loading.gif" lazyload alt="image-20251120180600196" style="zoom: 67%;" />
 
-<p>在potainer找到R标准容器，如果要创建自己版本的容器继续点Duplicate复制容器：</p>
-<img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251120161705119.png" srcset="/img/loading.gif" lazyload alt="img" style="zoom:80%;" />
+<p>进入后可以直接使用，其中文件的使用在下一部分阐述，使用后在右上角登出。</p>
+<img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251120180746424.png" srcset="/img/loading.gif" lazyload alt="image-20251120180746366" style="zoom: 67%;" />
 
-<p>这里要改动的有如下几点，其中修改工作目录详见下方<strong>R的文件共享</strong>部分。</p>
-<img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251120175018054.png" srcset="/img/loading.gif" lazyload alt="img" style="zoom: 80%;" />
-
-<p>&lt;img src&#x3D;”<a target="_blank" rel="noopener" href="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251120162614358.png">https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251120162614358.png</a>“ alt&#x3D;”img” style&#x3D;”zoom:80%;” &#x2F;</p>
-<img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251120162439370.png" srcset="/img/loading.gif" lazyload alt="img" style="zoom:80%;" />
-
-<p>进入R语言对应的版本的端口即可，注意下图的8789应为你所修改后的端口号：</p>
-<img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251120175102340.png" srcset="/img/loading.gif" lazyload alt="image-20251120175102258" style="zoom: 67%;" />
-
-<h4 id="R的文件共享"><a href="#R的文件共享" class="headerlink" title="R的文件共享"></a>R的文件共享</h4><p>R的工作目录默认下应该能看到如下内容：</p>
+<h2 id="R的文件共享"><a href="#R的文件共享" class="headerlink" title="R的文件共享"></a>R的文件共享</h2><p>R的工作目录默认下应该能看到如下内容：</p>
 <img src="https://s2.loli.net/2024/10/23/JtnciVDZ435kx8O.png" srcset="/img/loading.gif" lazyload alt="image-20241023230045769" style="zoom:67%;" />
 
 <p>host文件夹连接了主<strong>机的你个人的home文件夹</strong>。</p>
@@ -359,7 +351,17 @@
 <p>那么在R_Studio中，代码调用的路径应该是：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">/home/个人用户名/Datasets/bionet/Dataset/gl_XU<br></code></pre></td></tr></table></figure>
 
+<h2 id="使用不同版本的R语言"><a href="#使用不同版本的R语言" class="headerlink" title="使用不同版本的R语言"></a>使用不同版本的R语言</h2><p>容器的介绍及相关网站详见：<a target="_blank" rel="noopener" href="https://neonexusx.github.io/2024/09/21/Bionet-Server01%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%20%E2%80%94%E2%80%94Docker%E7%AF%87/%EF%BC%8C%E8%BF%99%E9%87%8C%E5%8F%AF%E4%BB%A5%E7%9C%8B%E5%88%B0%E5%B7%B2%E7%BB%8F%E5%AD%98%E5%9C%A8%E4%B8%80%E4%B8%AAR_EXAMPLE%E6%A0%87%E5%87%86%E5%AE%B9%E5%99%A8%E3%80%82">https://neonexusx.github.io/2024/09/21/Bionet-Server01%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%20%E2%80%94%E2%80%94Docker%E7%AF%87/，这里可以看到已经存在一个R_EXAMPLE标准容器。</a></p>
+<img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251120161522694.png" srcset="/img/loading.gif" lazyload alt="img" style="zoom:80%;" />
 
+<p>要创建自己版本的容器，从标准容器中继续点Duplicate复制容器：</p>
+<img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251120161705119.png" srcset="/img/loading.gif" lazyload alt="img" style="zoom:80%;" />
+
+<p>这里要改动的有如下几点：</p>
+<img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251120175018054.png" srcset="/img/loading.gif" lazyload alt="img" style="zoom: 80%;" />
+
+<p>进入R语言对应的版本的端口即可，注意下图的8789应为你所修改后的端口号：</p>
+<img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251120175102340.png" srcset="/img/loading.gif" lazyload alt="image-20251120175102258" style="zoom: 67%;" />
 
 <h1 id="三、imzML数据预处理-Cardinal"><a href="#三、imzML数据预处理-Cardinal" class="headerlink" title="三、imzML数据预处理(Cardinal)"></a>三、imzML数据预处理(Cardinal)</h1><p><em>Cardinal</em> 原生支持读写 imzML（包括 “continuous” 和 “processed” 类型），当然我们要处理的都是每个频谱具有不同的m&#x2F;z值的 “continuous” 类型数据。</p>
 <p><em>Cardinal 3.6</em>引入了一套简单的新数据结构如下，用于组织MS成像实验的数据。</p>
