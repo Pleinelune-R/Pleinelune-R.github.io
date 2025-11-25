@@ -33,7 +33,6 @@
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251120161705119.png">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251120175018054.png">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251121164320678.png">
-<meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251121164320678.png">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251120175102340.png">
 <meta property="og:image" content="https://s2.loli.net/2024/10/23/JtnciVDZ435kx8O.png">
 <meta property="og:image" content="https://s2.loli.net/2024/10/23/QcDnkq6fMvNZJW1.png">
@@ -45,7 +44,7 @@
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251120165046254.png">
 <meta property="og:image" content="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251120165044240.png">
 <meta property="article:published_time" content="2025-08-04T16:29:29.340Z">
-<meta property="article:modified_time" content="2025-11-23T11:39:34.843Z">
+<meta property="article:modified_time" content="2025-11-25T12:20:27.587Z">
 <meta property="article:author" content="Pleinelune">
 <meta property="article:tag" content="Pleinelune">
 <meta name="twitter:card" content="summary_large_image">
@@ -302,15 +301,15 @@
 </ul>
 <h1 id="一、MSI数据"><a href="#一、MSI数据" class="headerlink" title="一、MSI数据"></a>一、MSI数据</h1><h2 id="常用的数据类型有哪些？"><a href="#常用的数据类型有哪些？" class="headerlink" title="常用的数据类型有哪些？"></a>常用的数据类型有哪些？</h2><p>在质谱成像领域内，你大概率会见到的两种文件格式：<br>    ● Raw文件格式<br>    ● imzML原始数据文件格式<br>    事实上不同厂家的质谱仪器生产出来的Raw质谱数据是不一样的，主流公司的数据格式如下表所示。<br><img src="/img/MSI%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B/1-2.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="如何从Raw数据转换成imzML数据？"><a href="#如何从Raw数据转换成imzML数据？" class="headerlink" title="如何从Raw数据转换成imzML数据？"></a>如何从Raw数据转换成imzML数据？</h2><p>理论上我们只需要知道扫描斑点数信息，就可以直接从Raw文件中计算出质谱成像所需要的空间坐标信息。  	本文侧重点在于对imzML文件的预处理，对于Raw文件可以用以下的链接提供的软件来进行Raw to imzML的转换，试着使用他给出的示例文件来进行练习。<br>        <a target="_blank" rel="noopener" href="https://www.ms-imaging.org/imzml/software-tools/raw-to-imzml-converter/">https://www.ms-imaging.org/imzml/software-tools/raw-to-imzml-converter/</a></p>
-<h1 id="二、R包标准容器连接"><a href="#二、R包标准容器连接" class="headerlink" title="二、R包标准容器连接"></a>二、R包标准容器连接</h1><h2 id="R语言连接办法"><a href="#R语言连接办法" class="headerlink" title="R语言连接办法"></a>R语言连接办法</h2><p>R部署在服务器8787端口，登录账号密码和远程桌面密码一致（未更改的话应该是姓名，姓名+123）。如果还未更改第一次登陆后就需要自己修改为更复杂的密码。</p>
+<h1 id="二、RStudio标准连接"><a href="#二、RStudio标准连接" class="headerlink" title="二、RStudio标准连接"></a>二、RStudio标准连接</h1><h2 id="RStudio连接办法"><a href="#RStudio连接办法" class="headerlink" title="RStudio连接办法"></a>RStudio连接办法</h2><p>R部署在服务器8787端口，登录账号密码和远程桌面密码一致（未更改的话应该是姓名，姓名+123）。如果还未更改第一次登陆后就需要自己修改为更复杂的密码。</p>
 <img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251120180600258.png" srcset="/img/loading.gif" lazyload alt="image-20251120180600196" style="zoom: 67%;" />
 
 <p>进入后可以直接使用，其中文件的使用在下一部分阐述，使用后在右上角登出。</p>
 <p><strong>注意：8787中R已经预装了cardinal，只需要library（cardinal）就可以正常使用了。</strong></p>
+<p>登录后默认处于<strong>主机中登录用户个人的home文件夹</strong>，有你存放在Share_Space和R_Share等的文件。</p>
 <img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251120180746424.png" srcset="/img/loading.gif" lazyload alt="image-20251120180746366" style="zoom: 67%;" />
 
-<p>使用不同版本的R语言</p>
-<p>容器的介绍及相关网站详见：<a target="_blank" rel="noopener" href="https://neonexusx.github.io/2024/09/21/Bionet-Server01%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%20%E2%80%94%E2%80%94Docker%E7%AF%87/">https://neonexusx.github.io/2024/09/21/Bionet-Server01%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%20%E2%80%94%E2%80%94Docker%E7%AF%87/</a></p>
+<h2 id="使用不同版本的R语言"><a href="#使用不同版本的R语言" class="headerlink" title="使用不同版本的R语言"></a>使用不同版本的R语言</h2><p>容器的介绍及相关网站详见：<a target="_blank" rel="noopener" href="https://neonexusx.github.io/2024/09/21/Bionet-Server01%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%20%E2%80%94%E2%80%94Docker%E7%AF%87/">https://neonexusx.github.io/2024/09/21/Bionet-Server01%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%20%E2%80%94%E2%80%94Docker%E7%AF%87/</a></p>
 <p><strong>注意：本部分仅提供给要使用特定版本的R语言的同学，不需要可以跳过。</strong></p>
 <p>这里可以看到已经存在一个R_EXAMPLE标准容器：</p>
 <img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251120161522694.png" srcset="/img/loading.gif" lazyload alt="img" style="zoom:80%;" />
@@ -319,16 +318,17 @@
 <img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251120161705119.png" srcset="/img/loading.gif" lazyload alt="img" style="zoom:80%;" />
 
 <p>这里要改动的有如下几点，其中文件夹位置具体看下方R的文件共享部分：</p>
-<p><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251120175018054.png" srcset="/img/loading.gif" lazyload alt="img" style="zoom: 80%;" /><img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251121164320678.png" srcset="/img/loading.gif" lazyload alt="img"></p>
-<img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251121164320678.png" srcset="/img/loading.gif" lazyload alt="img" style="zoom:80%;" />
+<img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251120175018054.png" srcset="/img/loading.gif" lazyload style="zoom: 80%;" />
+
+<img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251121164320678.png" srcset="/img/loading.gif" lazyload style="zoom:80%;" />
 
 <p>进入R语言对应的版本的端口即可，注意下图的8789应为你所修改后的端口号：</p>
 <img src="https://pleinielune.oss-cn-guangzhou.aliyuncs.com/20251120175102340.png" srcset="/img/loading.gif" lazyload alt="image-20251120175102258" style="zoom: 67%;" />
 
-<h2 id="R的文件共享"><a href="#R的文件共享" class="headerlink" title="R的文件共享"></a>R的文件共享</h2><p>R的工作目录默认下应该能看到如下内容：</p>
+<h2 id="R容器的文件共享"><a href="#R容器的文件共享" class="headerlink" title="R容器的文件共享"></a>R容器的文件共享</h2><p>R的工作目录默认下应该能看到如下内容：</p>
 <img src="https://s2.loli.net/2024/10/23/JtnciVDZ435kx8O.png" srcset="/img/loading.gif" lazyload alt="image-20241023230045769" style="zoom:67%;" />
 
-<p>host文件夹连接了主<strong>机的你个人的home文件夹</strong>。</p>
+<p>host文件夹连接了<strong>主机的你个人的home文件夹</strong>。</p>
 <img src="https://s2.loli.net/2024/10/23/QcDnkq6fMvNZJW1.png" srcset="/img/loading.gif" lazyload alt="image-20241023233507171" style="zoom:67%;" />
 
 <p>假设你主机上在你的</p>
